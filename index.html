@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nova Clean — Nettoyage auto & ameublement | Brabant wallon</title>
+<meta name="description" content="Nova Clean nettoie l'intérieur et l'extérieur de votre voiture, ainsi que vos canapés et tissus d'ameublement, avec du matériel professionnel — directement chez vous, dans tout le Brabant wallon.">
+<meta property="og:title" content="Nova Clean — Nettoyage auto & ameublement">
+<meta property="og:description" content="Matériel professionnel, résultat visible, directement chez vous. Brabant wallon.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230B1420'/%3E%3Cpath d='M20 68 L42 34 L54 52 L64 38 L82 68 Z' fill='%231C6FD1'/%3E%3Ccircle cx='70' cy='24' r='6' fill='%234CE0D2'/%3E%3C/svg%3E">
+
+<!-- ============================================================
+  NOTES POUR ALEXANDRE / NOVA CLEAN — À lire avant mise en ligne
+
+  1) FORMULAIRE DE DEVIS : envoi automatique et silencieux vers
+     mateo.piret08@gmail.com via FormSubmit.co — le client ne fait
+     rien de plus que cliquer "Envoyer".
+     ⚠️ ÉTAPE UNIQUE À FAIRE : lors du tout premier envoi réel du
+     formulaire (une fois le site en ligne), FormSubmit.co envoie un
+     email de confirmation à mateo.piret08@gmail.com — il suffit
+     d'ouvrir cet email et de cliquer une fois sur le lien de
+     confirmation. Après ça, tous les envois arrivent directement,
+     sans aucune action de ta part ni de celle du client.
+
+  2) AVIS FACEBOOK : le badge "Avis clients vérifiés sur Facebook" (hero)
+     est volontairement statique, sans lien. Donne-moi l'URL de ta page
+     si tu veux le rendre cliquable plus tard.
+
+  3) PHOTOS : classement utilisé pour les galeries avant/après —
+     si un ordre est inversé quelque part, dis-le et je corrige
+     en 2 minutes (les fichiers sont nommés clairement dans /images).
+  ============================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ===================== RESET & TOKENS ===================== */
+*, *::before, *::after { box-sizing: border-box; }
+figure, blockquote, dl, dd { margin: 0; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+}
+body { margin: 0; }
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; }
+ul { list-style: none; margin: 0; padding: 0; }
+
+:root{
+  --ink: #0B1420;
+  --ink-soft: #16223A;
+  --ink-line: #24334D;
+  --nova: #1C6FD1;
+  --nova-deep: #124A94;
+  --nova-light: #7DC1FF;
+  --spark: #4CE0D2;
+  --foam: #F3F7FB;
+  --paper: #FFFFFF;
+  --chrome: #C9D2DC;
+  --ink-text: #17212F;
+  --muted: #55647A;
+
+  /* Nuances blanc / gris — pour la profondeur et le contraste entre sections */
+  --white: #FFFFFF;
+  --gray-50: #F7F9FC;
+  --gray-100: #EEF2F7;
+  --gray-150: #E6EBF2;
+  --gray-200: #DCE3EC;
+  --gray-300: #C3CCDA;
+  --gray-500: #8895A8;
+
+  --font-display: 'Space Grotesk', 'Segoe UI', sans-serif;
+  --font-body: 'IBM Plex Sans', 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+
+  --radius: 18px;
+  --radius-sm: 10px;
+  --container: 1180px;
+  --shadow-soft: 0 20px 50px -20px rgba(11,20,32,0.35);
+  /* Ombres 3D empilées : halo large + contact rapproché + liseré clair en relief */
+  --shadow-3d: 0 1px 0 rgba(255,255,255,0.9) inset, 0 24px 48px -22px rgba(11,20,32,0.28), 0 6px 14px -8px rgba(11,20,32,0.18);
+  --shadow-3d-dark: 0 1px 0 rgba(255,255,255,0.06) inset, 0 26px 54px -20px rgba(0,0,0,0.55), 0 8px 18px -10px rgba(0,0,0,0.45);
+  --text-shadow-light: 0 1px 0 rgba(255,255,255,0.7), 0 2px 10px rgba(17,33,56,0.10);
+  --text-shadow-dark: 0 2px 0 rgba(0,0,0,0.35), 0 10px 26px rgba(0,0,0,0.35);
+}
+
+body{
+  font-family: var(--font-body);
+  color: var(--ink-text);
+  background: var(--gray-100);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,h2,h3{ font-family: var(--font-display); color: var(--ink); margin: 0; line-height: 1.08; letter-spacing: -0.01em; text-shadow: var(--text-shadow-light); }
+p { margin: 0; }
+
+.container{ max-width: var(--container); margin: 0 auto; padding: 0 24px; }
+.section{ padding: 96px 0; }
+.section-tight{ padding: 64px 0; }
+
+.eyebrow{
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--nova-deep);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.eyebrow::before{
+  content:"";
+  width: 22px; height: 2px;
+  background: var(--nova);
+  display: inline-block;
+}
+
+.section-head{ max-width: 640px; margin-bottom: 48px; }
+.section-head h2{ font-size: clamp(1.7rem, 3.2vw, 2.5rem); }
+.section-head .lead{ margin-top: 14px; color: var(--muted); font-size: 1.05rem; }
+
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible{
+  outline: 2px solid var(--nova);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ===================== BUTTONS ===================== */
+.btn{
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  padding: 15px 26px;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 1px solid transparent;
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease, border-color .25s ease;
+  white-space: nowrap;
+}
+.btn-primary{
+  background: linear-gradient(180deg, var(--nova-light) 0%, var(--nova) 42%, var(--nova-deep) 100%);
+  color: #fff;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.45) inset, 0 -3px 8px rgba(0,0,0,0.18) inset, 0 14px 32px -10px rgba(18,74,148,0.65);
+}
+.btn-primary:hover{ background: linear-gradient(180deg, var(--nova-light) 0%, var(--nova-deep) 100%); transform: translateY(-2px); }
+.btn-ghost{ background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02)); color: var(--paper); border-color: rgba(255,255,255,0.35); box-shadow: 0 1px 0 rgba(255,255,255,0.15) inset; }
+.btn-ghost:hover{ border-color: rgba(255,255,255,0.8); transform: translateY(-2px); }
+.btn-dark{ background: linear-gradient(180deg, var(--ink-soft) 0%, var(--ink) 100%); color:#fff; box-shadow: 0 1px 0 rgba(255,255,255,0.08) inset, 0 14px 30px -12px rgba(0,0,0,0.55); }
+.btn-dark:hover{ background: linear-gradient(180deg, var(--ink-line) 0%, var(--ink-soft) 100%); transform: translateY(-2px); }
+.btn-block{ width: 100%; }
+
+/* ===================== HEADER ===================== */
+.site-header{
+  position: sticky; top: 0; z-index: 500;
+  background: linear-gradient(180deg, rgba(15,26,42,0.98), rgba(11,20,32,0.96));
+  border-bottom: 1px solid var(--ink-line);
+  box-shadow: 0 12px 30px -18px rgba(0,0,0,0.6);
+}
+.site-header .container{
+  display: flex; align-items: center; justify-content: space-between;
+  height: 76px;
+}
+.logo{ display: flex; align-items: center; gap: 10px; color: #fff; font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; }
+.logo-mark{ width: 34px; height: 34px; border-radius: 9px; position: relative; flex-shrink: 0; overflow:hidden; display:flex; align-items:center; justify-content:center; box-shadow: 0 1px 0 rgba(255,255,255,0.25) inset, 0 6px 14px -6px rgba(0,0,0,0.7); }
+.logo-mark img{ width: 100%; height:100%; object-fit: cover; display:block; }
+
+.main-nav{ display:flex; align-items:center; gap: 38px; }
+.main-nav a{ color: rgba(255,255,255,0.82); font-size: 0.94rem; font-weight: 500; transition: color .2s ease; position:relative; }
+.main-nav a:hover{ color: #fff; }
+.main-nav a::after{ content:""; position:absolute; left:0; right:0; bottom:-8px; height:2px; background: var(--spark); transform: scaleX(0); transition: transform .25s ease; }
+.main-nav a:hover::after{ transform: scaleX(1); }
+
+.header-actions{ display:flex; align-items:center; gap:14px; }
+.call-pill{
+  display:flex; align-items:center; gap:9px;
+  color:#fff; font-family: var(--font-mono); font-size: 0.88rem;
+  padding: 9px 16px; border-radius: 100px;
+  border: 1px solid var(--ink-line);
+  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
+  box-shadow: 0 1px 0 rgba(255,255,255,0.08) inset;
+  transition: border-color .2s ease, background .2s ease;
+}
+.call-pill:hover{ border-color: var(--nova-light); background: rgba(28,111,209,0.12); }
+.call-pill svg{ width:16px; height:16px; stroke: var(--spark); flex-shrink:0; }
+
+.nav-toggle{
+  display:none; background:none; border:none; color:#fff; width:40px; height:40px;
+  align-items:center; justify-content:center; border-radius:8px;
+}
+.nav-toggle:hover{ background: rgba(255,255,255,0.08); }
+
+.mobile-panel{
+  display:none;
+  position: fixed;
+  inset: 0;
+  z-index: 600;
+  background: #0B1420;
+  overflow-y: auto;
+}
+.mobile-panel.is-open{ display:flex; }
+.mobile-panel .container{
+  padding: 100px 24px 40px;
+  display:flex; flex-direction:column; gap:22px;
+  width:100%;
+}
+.mobile-panel a{ color: rgba(255,255,255,0.92); font-size: 1.3rem; font-weight:600; font-family: var(--font-display); padding: 6px 0; }
+.mobile-panel .call-pill{ align-self:center; margin-top:10px; }
+.mobile-panel-close{
+  position:absolute; top:22px; right:24px;
+  width:40px; height:40px; border-radius:10px;
+  background:none; border:none; color:#fff;
+  display:flex; align-items:center; justify-content:center;
+}
+
+/* ===================== HERO ===================== */
+.hero{
+  position: relative;
+  background: radial-gradient(120% 140% at 78% -10%, #123a68 0%, var(--ink) 46%, #060B12 100%);
+  overflow: hidden;
+  padding: 76px 0 60px;
+}
+.hero::before{
+  content:"";
+  position:absolute; inset:0;
+  background-image: linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+  background-size: 46px 46px;
+  mask-image: linear-gradient(180deg, rgba(0,0,0,0.9), transparent 75%);
+  pointer-events: none;
+}
+.hero-inner{
+  position: relative; z-index: 2;
+  display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 20px;
+  align-items: center;
+  min-height: 560px;
+}
+.hero-copy{ color: #fff; padding: 20px 0; }
+.hero-copy h1{ font-size: clamp(2.3rem, 4.6vw, 3.6rem); color: #fff; text-shadow: var(--text-shadow-dark); }
+.hero-lead{ margin-top: 22px; max-width: 480px; color: rgba(255,255,255,0.78); font-size: 1.08rem; }
+.hero-actions{ display:flex; flex-wrap:wrap; gap: 16px; margin-top: 34px; }
+
+.hero-trust{
+  display:flex; flex-wrap:wrap; gap: 10px 22px;
+  margin-top: 38px;
+  padding-top: 26px;
+  border-top: 1px solid rgba(255,255,255,0.14);
+}
+.hero-trust span{
+  font-family: var(--font-mono); font-size: 0.82rem;
+  color: rgba(255,255,255,0.65);
+  display:flex; align-items:center; gap:8px;
+}
+.hero-trust span::before{ content:""; width:6px; height:6px; border-radius:50%; background: var(--spark); }
+
+.reviews-line{
+  margin-top: 18px;
+  display:inline-flex; align-items:center; gap:9px;
+  color: rgba(255,255,255,0.62); font-size: 0.86rem;
+}
+.reviews-line svg{ width:14px; height:14px; fill: var(--spark); flex-shrink:0; }
+
+.hero-stage{
+  position: relative;
+  height: 480px;
+}
+.hero-float-scene{
+  position:absolute; inset:0;
+}
+.float-obj{
+  position:absolute;
+  filter: drop-shadow(0 10px 12px rgba(0,0,0,0.32));
+}
+.float-sofa{
+  left: 0%; bottom: 14%;
+  width: 68%;
+}
+.float-car{
+  right: -2%; top: 8%;
+  width: 74%;
+}
+@media (prefers-reduced-motion: no-preference){
+  .float-car{ animation: floatY 6.5s ease-in-out infinite; }
+  .float-sofa{ animation: floatY 7.5s ease-in-out infinite; animation-delay: -2.4s; }
+}
+@keyframes floatY{
+  0%, 100%{ transform: translateY(0); }
+  50%{ transform: translateY(-14px); }
+}
+
+/* ===================== SERVICES ===================== */
+.services-grid{ display:grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+.service-card{
+  background: linear-gradient(180deg, var(--white) 0%, var(--gray-50) 100%);
+  border-radius: var(--radius);
+  padding: 40px 36px;
+  box-shadow: var(--shadow-3d);
+  border: 1px solid var(--gray-150);
+  position: relative;
+  overflow: hidden;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.service-card:hover{ transform: translateY(-3px); box-shadow: 0 1px 0 rgba(255,255,255,0.9) inset, 0 30px 60px -22px rgba(11,20,32,0.32), 0 10px 20px -10px rgba(11,20,32,0.22); }
+.service-card::before{
+  content:""; position:absolute; top:-40px; right:-40px; width:140px; height:140px; border-radius:50%;
+  background: radial-gradient(circle, rgba(28,111,209,0.10), transparent 70%);
+}
+.service-icon{
+  width: 54px; height: 54px; border-radius: 14px;
+  background: linear-gradient(155deg, var(--nova-light) 0%, var(--nova) 45%, var(--nova-deep) 100%);
+  display:flex; align-items:center; justify-content:center;
+  margin-bottom: 22px;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.5) inset, 0 -4px 8px rgba(0,0,0,0.15) inset, 0 12px 20px -8px rgba(18,74,148,0.55);
+}
+.service-icon svg{ width: 26px; height: 26px; stroke: #fff; }
+.service-card h3{ font-size: 1.35rem; margin-bottom: 12px; }
+.service-card p{ color: var(--muted); }
+.service-list{ margin-top: 22px; display:flex; flex-direction:column; gap: 10px; }
+.service-list li{ display:flex; align-items:center; gap: 10px; font-size: 0.92rem; color: var(--ink-text); font-weight:500; }
+.service-list li svg{ width:16px; height:16px; stroke: var(--nova); flex-shrink:0; }
+
+/* ===================== PRICING ===================== */
+.pricing-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 26px; align-items:stretch; }
+.price-card{
+  background: linear-gradient(180deg, var(--white) 0%, var(--gray-50) 100%);
+  border-radius: var(--radius);
+  padding: 38px 32px;
+  box-shadow: var(--shadow-3d);
+  border: 1px solid var(--gray-150);
+  display:flex; flex-direction:column;
+  position: relative;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.price-card:hover{ transform: translateY(-4px); box-shadow: 0 1px 0 rgba(255,255,255,0.9) inset, 0 30px 60px -22px rgba(11,20,32,0.32), 0 10px 20px -10px rgba(11,20,32,0.22); }
+.price-card--featured{
+  border-color: var(--nova);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.9) inset, 0 30px 60px -18px rgba(28,111,209,0.42), 0 10px 22px -10px rgba(28,111,209,0.3);
+}
+.price-badge{
+  position:absolute; top:-14px; left:32px;
+  background: linear-gradient(180deg, var(--nova-light), var(--nova));
+  color:#fff;
+  font-family: var(--font-mono); font-size: 0.74rem; letter-spacing:.03em;
+  padding: 7px 15px; border-radius: 100px;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.5) inset, 0 8px 16px -6px rgba(18,74,148,0.55);
+}
+.price-card h3{ font-size: 1.2rem; margin-bottom: 10px; }
+.price-amount{ font-family: var(--font-display); font-size: 2.6rem; font-weight: 700; color: var(--ink); margin-bottom: 4px; text-shadow: var(--text-shadow-light); }
+.price-amount span{ font-size: 1.3rem; font-weight: 600; color: var(--muted); margin-left: 2px; }
+.price-includes{ font-family: var(--font-mono); font-size: 0.8rem; color: var(--nova-deep); margin-bottom: 18px; }
+.price-card > .price-amount + .price-list{ margin-top: 20px; }
+.price-list{ display:flex; flex-direction:column; gap: 12px; margin-bottom: 24px; flex-grow: 1; }
+.price-list li{ display:flex; align-items:flex-start; gap: 10px; font-size: 0.92rem; color: var(--ink-text); }
+.price-list li svg{ width:16px; height:16px; stroke: var(--nova); flex-shrink:0; margin-top: 3px; }
+.price-addon{ border-top: 1px solid #E7EDF3; padding-top: 18px; margin-bottom: 24px; }
+.price-addon .addon-top{ display:flex; align-items:center; justify-content:space-between; gap:10px; }
+.price-addon strong{ font-size: 0.88rem; color: var(--ink-text); }
+.addon-price{ font-family: var(--font-mono); color: var(--nova-deep); font-weight: 600; font-size: 0.88rem; }
+.addon-desc{ font-size: 0.82rem; color: var(--muted); margin-top: 6px; }
+.price-cta{ margin-top: auto; }
+
+/* ===================== TARIF CATEGORIES ===================== */
+.tarif-category{ margin-bottom: 68px; }
+.tarif-category:last-child{ margin-bottom: 0; }
+.tarif-kicker{
+  font-family: var(--font-mono); font-size: 0.8rem; letter-spacing:.1em; text-transform:uppercase;
+  color: var(--nova-deep);
+  display:flex; align-items:center; gap:11px;
+  margin-bottom: 26px;
+}
+.tarif-kicker::before{ content:""; width:18px; height:1.5px; background: var(--nova); flex-shrink:0; }
+
+.tarif-footnote{
+  margin-top: 24px;
+  display:flex; align-items:center; gap:18px;
+  background: linear-gradient(180deg, var(--white), var(--gray-50));
+  border: 1px solid var(--gray-150);
+  border-radius: var(--radius-sm);
+  padding: 20px 26px;
+  box-shadow: var(--shadow-3d);
+}
+.tarif-footnote .ic{
+  width: 40px; height:40px; border-radius: 11px; flex-shrink:0;
+  background: linear-gradient(155deg, rgba(28,111,209,0.16), rgba(28,111,209,0.06));
+  display:flex; align-items:center; justify-content:center;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset, 0 -2px 4px rgba(11,20,32,0.06) inset;
+}
+.tarif-footnote .ic svg{ width:20px; height:20px; stroke: var(--nova-deep); }
+.tarif-footnote strong{ display:block; font-size:0.95rem; color:var(--ink-text); }
+.tarif-footnote span{ display:block; font-size:0.86rem; color:var(--muted); margin-top:3px; }
+
+.custom-quote-card{
+  background: linear-gradient(160deg, var(--ink-soft) 0%, var(--ink) 55%, #060B12 100%);
+  border-radius: var(--radius);
+  padding: 46px 44px;
+  display:grid; grid-template-columns: 1fr auto;
+  gap: 40px; align-items:center;
+  box-shadow: var(--shadow-3d-dark);
+  border: 1px solid var(--ink-line);
+}
+.custom-quote-card h3{ color:#fff; font-size: 1.4rem; margin-bottom: 12px; text-shadow: var(--text-shadow-dark); }
+.custom-quote-card p{ color: rgba(255,255,255,0.68); font-size: 0.98rem; max-width: 460px; margin-bottom: 22px; }
+.custom-quote-card .price-list{ margin-bottom: 0; flex-direction: row; flex-wrap: wrap; gap: 10px 24px; }
+.custom-quote-card .price-list li{ color: rgba(255,255,255,0.85); }
+.custom-quote-card .price-list li svg{ stroke: var(--spark); }
+.custom-quote-card .price-cta{ white-space: normal; text-align:center; max-width: 100%; }
+
+/* ===================== CAROUSEL ===================== */
+.gallery-item{ margin-bottom: 64px; }
+.gallery-item:last-child{ margin-bottom: 0; }
+.gallery-item-head{ display:flex; align-items:baseline; justify-content:space-between; gap: 16px; margin-bottom: 18px; flex-wrap: wrap; }
+.gallery-item-head h3{ font-size: 1.3rem; }
+.gallery-item-head .tag{ font-family: var(--font-mono); font-size: 0.78rem; color: var(--muted); }
+
+.carousel{
+  position: relative;
+  aspect-ratio: 3 / 4;
+  max-width: 460px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.9), 0 26px 50px -18px rgba(11,20,32,0.42), 0 8px 16px -10px rgba(11,20,32,0.3);
+  border: 1px solid var(--gray-150);
+}
+.carousel-track{
+  display:flex;
+  height:100%; width:100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.carousel-track::-webkit-scrollbar{ display:none; height:0; width:0; }
+.carousel-slide{ flex: 0 0 100%; height:100%; position:relative; margin:0; scroll-snap-align: start; scroll-snap-stop: always; }
+.carousel-slide img{ width:100%; height:100%; object-fit: cover; display:block; }
+.slide-badge{
+  position:absolute; top:16px; left:16px;
+  font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: .04em;
+  padding: 6px 13px; border-radius: 100px;
+  background: rgba(11,20,32,0.72); color:#fff;
+  backdrop-filter: blur(4px);
+}
+.slide-badge[data-type="avant"]{ background: rgba(85,45,20,0.8); }
+.slide-badge[data-type="apres"]{ background: rgba(20,90,60,0.82); }
+
+.carousel-arrow{
+  position:absolute; top:50%; transform: translateY(-50%);
+  width: 42px; height:42px; border-radius:50%;
+  background: rgba(11,20,32,0.55); border:1px solid rgba(255,255,255,0.25);
+  display:flex; align-items:center; justify-content:center;
+  color:#fff; transition: background .2s ease, border-color .2s ease;
+  backdrop-filter: blur(3px);
+}
+.carousel-arrow:hover{ background: var(--nova); border-color: var(--nova); }
+.carousel-arrow svg{ width:18px; height:18px; }
+.carousel-arrow--prev{ left: 14px; }
+.carousel-arrow--next{ right: 14px; }
+
+.carousel-counter{
+  position:absolute; bottom:14px; right:16px;
+  font-family: var(--font-mono); font-size: 0.75rem; color: rgba(255,255,255,0.85);
+  background: rgba(11,20,32,0.55); padding: 4px 11px; border-radius: 100px;
+  backdrop-filter: blur(3px);
+}
+
+
+.mercedes-frame{
+  max-width: 640px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-3d);
+  border: 1px solid var(--gray-150);
+}
+.mercedes-frame img{ width:100%; }
+.mercedes-caption{ margin-top: 14px; color: var(--muted); font-size: 0.92rem; font-family: var(--font-mono); }
+
+.extraction-callout{
+  display:grid; grid-template-columns: 220px 1fr; gap: 26px; align-items:center;
+  background: linear-gradient(160deg, var(--ink-soft) 0%, var(--ink) 100%);
+  border-radius: var(--radius); padding: 26px; margin-top: 40px;
+  box-shadow: var(--shadow-3d-dark);
+  border: 1px solid var(--ink-line);
+}
+.extraction-callout img{ border-radius: var(--radius-sm); aspect-ratio: 3/4; object-fit: cover; box-shadow: 0 14px 28px -12px rgba(0,0,0,0.55); }
+.extraction-callout p{ color: rgba(255,255,255,0.82); font-size: 1.02rem; }
+.extraction-callout .eyebrow{ color: var(--spark); }
+
+/* ===================== MATERIEL ===================== */
+.materiel-grid{
+  display:grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+}
+.materiel-grid figure{ margin:0; border-radius: var(--radius-sm); overflow:hidden; aspect-ratio: 3/4; box-shadow: var(--shadow-3d); border: 1px solid var(--gray-150); transition: box-shadow .3s ease; }
+.materiel-grid figure:hover{ box-shadow: 0 1px 0 rgba(255,255,255,0.9) inset, 0 30px 55px -20px rgba(11,20,32,0.35); }
+.materiel-grid img{ width:100%; height:100%; object-fit:cover; transition: transform .5s ease; }
+.materiel-grid figure:hover img{ transform: scale(1.06); }
+
+/* ===================== ZONE ===================== */
+.zone-section{ background: var(--ink); color:#fff; }
+.zone-section .section-head h2{ color:#fff; text-shadow: var(--text-shadow-dark); }
+.zone-section .section-head .lead{ color: rgba(255,255,255,0.65); }
+.zone-section .eyebrow{ color: var(--spark); }
+.zone-chips{ display:flex; flex-wrap:wrap; gap: 12px; }
+.zone-chips li{
+  font-family: var(--font-mono); font-size: 0.88rem;
+  padding: 10px 18px; border-radius: 100px;
+  border: 1px solid var(--ink-line);
+  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
+  box-shadow: 0 1px 0 rgba(255,255,255,0.06) inset;
+  color: rgba(255,255,255,0.85);
+  transition: border-color .2s ease, background .2s ease, transform .2s ease;
+}
+.zone-chips li.is-base{ border-color: var(--nova); background: linear-gradient(180deg, rgba(28,111,209,0.28), rgba(28,111,209,0.12)); color:#fff; box-shadow: 0 1px 0 rgba(255,255,255,0.2) inset, 0 8px 16px -8px rgba(28,111,209,0.6); }
+.zone-chips li:hover{ border-color: var(--nova-light); transform: translateY(-1px); }
+.zone-note{ margin-top:26px; color: rgba(255,255,255,0.55); font-size:0.9rem; }
+
+/* ===================== CONTACT ===================== */
+.contact-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items:start; }
+.contact-info h2{ font-size: clamp(1.7rem, 3.2vw, 2.4rem); }
+.contact-info .lead{ margin-top:16px; color: var(--muted); font-size:1.05rem; max-width: 420px; }
+.contact-direct{ margin-top: 36px; display:flex; flex-direction:column; gap:16px; }
+.contact-direct a{
+  display:flex; align-items:center; gap:14px;
+  font-family: var(--font-mono); font-size: 1rem;
+  padding: 16px 20px; border-radius: var(--radius-sm);
+  background: linear-gradient(180deg, var(--white), var(--gray-50));
+  border:1px solid var(--gray-150); box-shadow: var(--shadow-3d);
+  transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+.contact-direct a:hover{ border-color: var(--nova); transform: translateY(-2px); box-shadow: 0 1px 0 rgba(255,255,255,0.9) inset, 0 26px 50px -20px rgba(28,111,209,0.35); }
+.contact-direct svg{ width:20px; height:20px; stroke: var(--nova); flex-shrink:0; }
+
+.contact-form{
+  background: linear-gradient(180deg, var(--white) 0%, var(--gray-50) 100%);
+  border-radius: var(--radius); padding: 38px;
+  box-shadow: var(--shadow-3d); border: 1px solid var(--gray-150);
+}
+.form-row{ margin-bottom: 20px; display:flex; flex-direction:column; gap:8px; }
+.form-row label{ font-size: 0.88rem; font-weight:600; color: var(--ink-text); }
+.form-row input, .form-row select, .form-row textarea{
+  font-family: var(--font-body); font-size: 0.96rem; color: var(--ink-text);
+  padding: 13px 15px; border-radius: 10px; border: 1.5px solid var(--gray-200);
+  background: var(--gray-50); box-shadow: 0 2px 4px rgba(11,20,32,0.05) inset;
+  transition: border-color .2s ease, background .2s ease, box-shadow .2s ease;
+}
+.form-row input:focus, .form-row select:focus, .form-row textarea:focus{
+  border-color: var(--nova); background: #fff; outline: none;
+  box-shadow: 0 0 0 3px rgba(28,111,209,0.12);
+}
+.form-two{ display:grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.form-note{ font-size: 0.82rem; color: var(--muted); margin-top: 14px; text-align:center; }
+.honey{ position:absolute; left:-9999px; opacity:0; }
+
+/* ===================== FOOTER ===================== */
+.site-footer{ background: linear-gradient(180deg, var(--ink) 0%, #060B12 100%); color: rgba(255,255,255,0.65); padding: 56px 0 30px; border-top: 1px solid var(--ink-line); }
+.footer-top{ display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap: 30px; padding-bottom: 34px; border-bottom: 1px solid var(--ink-line); }
+.footer-logo{ display:flex; align-items:center; gap:10px; color:#fff; font-family: var(--font-display); font-weight:700; font-size:1.15rem; }
+.footer-meta{ font-family: var(--font-mono); font-size: 0.85rem; display:flex; flex-direction:column; gap:8px; align-items:flex-end; }
+.footer-bottom{ padding-top: 24px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size: 0.82rem; }
+
+/* ===================== REVEAL ===================== */
+@media (prefers-reduced-motion: no-preference){
+  .reveal{ opacity:0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.is-visible{ opacity:1; transform:none; }
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 980px){
+  .main-nav{ display:none; }
+  .header-actions .call-pill{ display:none; }
+  .nav-toggle{ display:flex; }
+  .hero-inner{ grid-template-columns: 1fr; min-height: auto; }
+  .hero-stage{ height: 340px; order: -1; }
+  .services-grid{ grid-template-columns: 1fr; }
+  .pricing-grid{ grid-template-columns: 1fr; }
+  .custom-quote-card{ grid-template-columns: 1fr; text-align:left; }
+  .custom-quote-card .price-cta{ width:100%; text-align:center; }
+  .materiel-grid{ grid-template-columns: repeat(2, 1fr); }
+  .contact-grid{ grid-template-columns: 1fr; gap: 40px; }
+  .extraction-callout{ grid-template-columns: 1fr; }
+  .extraction-callout img{ max-width: 220px; }
+  .footer-meta{ align-items:flex-start; }
+}
+@media (max-width: 560px){
+  .section{ padding: 64px 0; }
+  .form-two{ grid-template-columns: 1fr; }
+  .hero-actions{ flex-direction:column; align-items:stretch; }
+  .materiel-grid{ grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<a class="visually-hidden" href="#contenu-principal" style="position:absolute; left:-9999px; top:0; background:#fff; padding:10px; z-index:1000;">Aller au contenu principal</a>
+
+<!-- ===================== HEADER ===================== -->
+<header class="site-header">
+  <div class="container">
+    <!-- LOGO -->
+    <a href="#" class="logo" aria-label="Nova Clean — accueil">
+      <span class="logo-mark">
+        <img src="images/logo-icon-native.png" alt="">
+      </span>
+      Nova Clean
+    </a>
+
+    <nav class="main-nav" aria-label="Navigation principale">
+      <a href="#services">Services</a>
+      <a href="#tarifs">Tarifs</a>
+      <a href="#realisations">Réalisations</a>
+      <a href="#zone">Zone d'intervention</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="call-pill" href="tel:+32473239370">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +32 473 23 93 70
+      </a>
+      <a class="btn btn-primary" href="#contact" style="padding:11px 22px; font-size:0.9rem;">Devis gratuit</a>
+      <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" id="navToggle">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-panel" id="mobilePanel">
+    <button class="mobile-panel-close" id="mobilePanelClose" aria-label="Fermer le menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="container">
+      <a href="#services">Services</a>
+      <a href="#tarifs">Tarifs</a>
+      <a href="#realisations">Réalisations</a>
+      <a href="#zone">Zone d'intervention</a>
+      <a href="#contact">Contact</a>
+      <a class="call-pill" href="tel:+32473239370">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +32 473 23 93 70
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="contenu-principal">
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow" style="color:var(--spark);">Nettoyage auto & ameublement — Brabant wallon</p>
+        <h1>Un éclat neuf,<br>où que vous soyez.</h1>
+        <p class="hero-lead">Nova Clean redonne tout son éclat à l'intérieur et l'extérieur de votre voiture, ainsi qu'à vos canapés et tissus d'ameublement. Matériel professionnel, résultat visible, directement chez vous.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contact">Demander un devis gratuit</a>
+          <a class="btn btn-ghost" href="#realisations">Voir les avant / après</a>
+        </div>
+        <div class="hero-trust">
+          <span>Matériel professionnel</span>
+          <span>Service à domicile</span>
+          <span>Brabant wallon</span>
+        </div>
+        <span class="reviews-line">
+          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6L19 7.3l-4.5 4.2 1.2 6.4L10 14.8 4.3 17.9l1.2-6.4L1 7.3l6.4-.7z"/></svg>
+          Avis clients vérifiés sur Facebook
+        </span>
+      </div>
+
+      <div class="hero-stage" id="heroStage">
+        <div class="hero-float-scene">
+          <img class="float-obj float-sofa" src="images/hero-sofa-gris-cutout.png" alt="Canapé nettoyé par Nova Clean" loading="eager">
+          <img class="float-obj float-car" src="images/hero-m4-cutout.png" alt="BMW M4 nettoyée par Nova Clean" loading="eager">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SERVICES ===================== -->
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Nos prestations</p>
+        <h2>Deux spécialités, une seule exigence.</h2>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M5 17a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm14 0a2 2 0 1 0 4 0 2 2 0 0 0-4 0zM3 17V9l2-5h14l2 5v8"/></svg>
+          </div>
+          <h3>Voiture — intérieur & extérieur</h3>
+          <p>Carrosserie, jantes, vitres, habitacle, sièges et coffre : un nettoyage complet à la machine professionnelle, pour un résultat qui tient dans la durée.</p>
+          <ul class="service-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Carrosserie & jantes</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Vitres & plastiques</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Habitacle, sièges & coffre</li>
+          </ul>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v6M2 18h20M4 18v2M20 18v2"/></svg>
+          </div>
+          <h3>Canapés & tissus d'ameublement</h3>
+          <p>Extraction en profondeur des taches, poils et odeurs incrustées dans le tissu, la microfibre ou la suédine — sans agresser la matière.</p>
+          <ul class="service-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Injection-extraction professionnelle</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Taches, poils & odeurs</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Tissu, microfibre, suédine</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TARIFS ===================== -->
+  <section class="section" id="tarifs" style="background:var(--paper);">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Tarifs</p>
+        <h2>Des tarifs clairs, pour chaque besoin.</h2>
+        <p class="lead">Un devis précis dépend de l'état du support — envoyez quelques photos et on vous confirme le tarif exact.</p>
+      </div>
+
+      <div class="tarif-category reveal">
+        <p class="tarif-kicker">Véhicules</p>
+
+        <div class="pricing-grid">
+          <div class="price-card reveal">
+            <h3>Formule Quotidienne</h3>
+            <p class="price-amount">35<span>€</span></p>
+            <ul class="price-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Aspiration complète de l'habitacle</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Dépoussiérage intérieur</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Nettoyage des surfaces intérieures</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Finitions propres et soignées</li>
+            </ul>
+            <div class="price-addon">
+              <div class="addon-top"><strong>+ Option Extérieur Standard</strong><span class="addon-price">+15€</span></div>
+              <p class="addon-desc">Lavage carrosserie, vitres extérieures, séchage</p>
+            </div>
+            <a href="#contact" class="btn btn-dark btn-block price-cta" data-service="Formule Quotidienne — 35€">Choisir cette formule</a>
+          </div>
+
+          <div class="price-card price-card--featured reveal">
+            <span class="price-badge">Le plus choisi</span>
+            <h3>Formule Premium</h3>
+            <p class="price-amount">55<span>€</span></p>
+            <p class="price-includes">Formule Quotidienne incluse, plus :</p>
+            <ul class="price-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Nettoyage vapeur intérieur</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Traitement des plastiques</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Assainissement de l'habitacle</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Nettoyage détaillé des différentes zones du véhicule</li>
+            </ul>
+            <div class="price-addon">
+              <div class="addon-top"><strong>+ Option Extérieur Premium</strong><span class="addon-price">+20€</span></div>
+            </div>
+            <a href="#contact" class="btn btn-primary btn-block price-cta" data-service="Formule Premium — 55€">Choisir cette formule</a>
+          </div>
+
+          <div class="price-card reveal">
+            <h3>Formule Intense</h3>
+            <p class="price-amount">80<span>€</span></p>
+            <p class="price-includes">Formule Premium incluse, plus :</p>
+            <ul class="price-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Shampouinage des sièges</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Nettoyage en profondeur des tapis et moquettes</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Extraction des saletés incrustées</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Désodorisation complète de l'habitacle</li>
+            </ul>
+            <div class="price-addon">
+              <div class="addon-top"><strong>+ Option Extérieur Premium</strong><span class="addon-price">+20€</span></div>
+            </div>
+            <a href="#contact" class="btn btn-dark btn-block price-cta" data-service="Formule Intense — 80€">Choisir cette formule</a>
+          </div>
+        </div>
+
+        <div class="tarif-footnote reveal">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17h1m16 0h1M3 17V10a1 1 0 0 1 1-1h11l4 4v4M3 17a2 2 0 1 0 4 0 2 2 0 0 0-4 0zm12 0a2 2 0 1 0 4 0 2 2 0 0 0-4 0zM4 9V6a1 1 0 0 1 1-1h7v4"/></svg></span>
+          <div><strong>Utilitaires & camionnettes</strong><span>Gabarit hors norme — devis personnalisé sur base de photos</span></div>
+        </div>
+      </div>
+
+      <div class="tarif-category reveal">
+        <p class="tarif-kicker">Canapés & ameublement</p>
+
+        <div class="custom-quote-card">
+          <div>
+            <h3>Un tarif sur mesure, selon votre canapé.</h3>
+            <p>Le prix dépend des dimensions, du nombre de places et de l'état du tissu. Envoyez-nous quelques photos, on vous propose un devis précis sous 24h.</p>
+            <ul class="price-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Injection-extraction professionnelle</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Traitement anti-taches</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Désodorisation complète</li>
+            </ul>
+          </div>
+          <a href="#contact" class="btn btn-primary price-cta" data-service="Canapé / tissu d'ameublement">Demander un devis pour mon canapé</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== RÉALISATIONS ===================== -->
+  <section class="section" id="realisations" style="background:var(--gray-50);">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Réalisations</p>
+        <h2>Le résultat parle de lui-même.</h2>
+        <p class="lead">Quelques interventions récentes, en photos.</p>
+      </div>
+
+      <!-- Golf -->
+      <div class="gallery-item reveal">
+        <div class="gallery-item-head">
+          <h3>Volkswagen Golf — intérieur & extérieur</h3>
+          <span class="tag">9 photos</span>
+        </div>
+        <div class="carousel" data-carousel>
+          <div class="carousel-track">
+            <figure class="carousel-slide"><span class="slide-badge">Extérieur</span><img src="images/golf-01.jpg" loading="lazy" alt="Volkswagen Golf blanche, carrosserie nettoyée, vue extérieure avant"></figure>
+            <figure class="carousel-slide"><span class="slide-badge">Extérieur</span><img src="images/golf-02.jpg" loading="lazy" alt="Jante et carrosserie de la Golf après nettoyage"></figure>
+            <figure class="carousel-slide"><span class="slide-badge">Intérieur</span><img src="images/golf-03.jpg" loading="lazy" alt="Habitacle de la Golf nettoyé, tableau de bord et volant"></figure>
+            <figure class="carousel-slide"><span class="slide-badge">Intérieur</span><img src="images/golf-04.jpg" loading="lazy" alt="Intérieur de la Golf, siège conducteur et tableau de bord"></figure>
+            <figure class="carousel-slide"><span class="slide-badge">Intérieur</span><img src="images/golf-05.jpg" loading="lazy" alt="Tableau de bord et plancher côté passager de la Golf"></figure>
+            <figure class="carousel-slide"><span class="slide-badge">Intérieur</span><img src="images/golf-06.jpg" loading="lazy" alt="Intérieur avant de la Golf, vue depuis la portière ouverte"></figure>
+            <figure class="carousel-slide"><span class="slide-badge">Intérieur</span><img src="images/golf-07.jpg" loading="lazy" alt="Banquette arrière de la Golf nettoyée"></figure>
+            <figure class="carousel-slide"><span class="slide-badge">Intérieur</span><img src="images/golf-08.jpg" loading="lazy" alt="Sièges arrière de la Golf, vue d'ensemble"></figure>
+            <figure class="carousel-slide"><span class="slide-badge">Coffre</span><img src="images/golf-09.jpg" loading="lazy" alt="Coffre de la Golf, entièrement vidé et nettoyé"></figure>
+          </div>
+          <button class="carousel-arrow carousel-arrow--prev" aria-label="Photo précédente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+          <button class="carousel-arrow carousel-arrow--next" aria-label="Photo suivante"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+          <div class="carousel-counter"><span data-current>1</span> / <span data-total>9</span></div>
+        </div>
+      </div>
+
+      <!-- Canapé -->
+      <div class="gallery-item reveal">
+        <div class="gallery-item-head">
+          <h3>Canapé d'angle en suédine</h3>
+          <span class="tag">Avant / après</span>
+        </div>
+        <div class="carousel" data-carousel>
+          <div class="carousel-track">
+            <figure class="carousel-slide"><span class="slide-badge" data-type="avant">Avant</span><img src="images/canape-avant-1.jpg" loading="lazy" alt="Canapé en suédine taché avant nettoyage, vue 1"></figure>
+            <figure class="carousel-slide"><span class="slide-badge" data-type="apres">Après</span><img src="images/canape-apres-1.jpg" loading="lazy" alt="Canapé en suédine nettoyé, vue 1"></figure>
+            <figure class="carousel-slide"><span class="slide-badge" data-type="avant">Avant</span><img src="images/canape-avant-2.jpg" loading="lazy" alt="Canapé en suédine taché avant nettoyage, vue 2"></figure>
+            <figure class="carousel-slide"><span class="slide-badge" data-type="apres">Après</span><img src="images/canape-apres-2.jpg" loading="lazy" alt="Canapé en suédine nettoyé, vue 2"></figure>
+            <figure class="carousel-slide"><span class="slide-badge" data-type="avant">Avant</span><img src="images/canape-avant-3.jpg" loading="lazy" alt="Canapé en suédine taché avant nettoyage, vue 3"></figure>
+            <figure class="carousel-slide"><span class="slide-badge" data-type="apres">Après</span><img src="images/canape-apres-3.jpg" loading="lazy" alt="Canapé en suédine nettoyé, vue 3"></figure>
+          </div>
+          <button class="carousel-arrow carousel-arrow--prev" aria-label="Photo précédente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+          <button class="carousel-arrow carousel-arrow--next" aria-label="Photo suivante"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+          <div class="carousel-counter"><span data-current>1</span> / <span data-total>6</span></div>
+        </div>
+
+        <div class="extraction-callout">
+          <img src="images/canape-extraction.jpg" loading="lazy" alt="Eau d'extraction du canapé, chargée de saleté, après nettoyage professionnel">
+          <div>
+            <p class="eyebrow">La preuve en image</p>
+            <p>L'eau d'extraction en dit long sur ce qui s'incrustait dans le tissu — un signe que le nettoyage va bien au-delà de la surface.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Audi A1 -->
+      <div class="gallery-item reveal">
+        <div class="gallery-item-head">
+          <h3>Audi A1 — habitacle</h3>
+          <span class="tag">Avant / après</span>
+        </div>
+        <div class="carousel" data-carousel>
+          <div class="carousel-track">
+            <figure class="carousel-slide"><span class="slide-badge" data-type="avant">Avant</span><img src="images/audi-avant.jpg" loading="lazy" alt="Tapis de sol de l'Audi A1 sale, avant nettoyage"></figure>
+            <figure class="carousel-slide"><span class="slide-badge" data-type="apres">Après</span><img src="images/audi-apres-1.jpg" loading="lazy" alt="Habitacle de l'Audi A1 nettoyé, vue du volant et tableau de bord"></figure>
+            <figure class="carousel-slide"><span class="slide-badge" data-type="apres">Après</span><img src="images/audi-apres-2.jpg" loading="lazy" alt="Habitacle de l'Audi A1 nettoyé, vue depuis la portière ouverte"></figure>
+            <figure class="carousel-slide"><span class="slide-badge" data-type="apres">Après</span><img src="images/audi-apres-3.jpg" loading="lazy" alt="Tableau de bord et sièges de l'Audi A1 après nettoyage"></figure>
+          </div>
+          <button class="carousel-arrow carousel-arrow--prev" aria-label="Photo précédente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+          <button class="carousel-arrow carousel-arrow--next" aria-label="Photo suivante"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+          <div class="carousel-counter"><span data-current>1</span> / <span data-total>4</span></div>
+        </div>
+      </div>
+
+      <!-- Mercedes -->
+      <div class="gallery-item reveal">
+        <div class="gallery-item-head">
+          <h3>Mercedes — habitacle</h3>
+          <span class="tag">Avant / après</span>
+        </div>
+        <div class="mercedes-frame">
+          <img src="images/mercedes-avant-apres.jpg" loading="lazy" alt="Habitacle de la Mercedes, comparaison avant et après nettoyage professionnel">
+        </div>
+        <p class="mercedes-caption">Avant — à gauche · Après — à droite</p>
+      </div>
+
+      <!-- Canapé gris -->
+      <div class="gallery-item reveal" style="margin-bottom:0;">
+        <div class="gallery-item-head">
+          <h3>Canapé d'angle en tissu</h3>
+          <span class="tag">Avant / après</span>
+        </div>
+        <div class="carousel" data-carousel>
+          <div class="carousel-track">
+            <figure class="carousel-slide"><span class="slide-badge" data-type="avant">Avant</span><img src="images/canape-gris-avant-1.jpg" loading="lazy" alt="Canapé gris taché avant nettoyage, vue 1"></figure>
+            <figure class="carousel-slide"><span class="slide-badge" data-type="apres">Après</span><img src="images/canape-gris-apres-3.jpg" loading="lazy" alt="Canapé gris nettoyé, vue 3"></figure>
+            <figure class="carousel-slide"><span class="slide-badge" data-type="avant">Avant</span><img src="images/canape-gris-avant-2.jpg" loading="lazy" alt="Canapé gris taché avant nettoyage, vue 2"></figure>
+            <figure class="carousel-slide"><span class="slide-badge" data-type="avant">Avant</span><img src="images/canape-gris-avant-3.jpg" loading="lazy" alt="Canapé gris taché avant nettoyage, vue 3"></figure>
+            <figure class="carousel-slide"><span class="slide-badge" data-type="apres">Après</span><img src="images/canape-gris-apres-1.jpg" loading="lazy" alt="Canapé gris nettoyé, vue 1"></figure>
+            <figure class="carousel-slide"><span class="slide-badge" data-type="apres">Après</span><img src="images/canape-gris-apres-2.jpg" loading="lazy" alt="Canapé gris nettoyé, vue 2"></figure>
+          </div>
+          <button class="carousel-arrow carousel-arrow--prev" aria-label="Photo précédente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+          <button class="carousel-arrow carousel-arrow--next" aria-label="Photo suivante"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+          <div class="carousel-counter"><span data-current>1</span> / <span data-total>6</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== MATÉRIEL ===================== -->
+  <section class="section" style="background:var(--gray-150);">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Sur le terrain</p>
+        <h2>Un équipement pro, embarqué partout.</h2>
+        <p class="lead">Nova Clean se déplace avec son propre matériel — aspirateur industriel, injecteur-extracteur professionnel et accessoires dédiés — pour intervenir directement chez vous, sans compromis sur la qualité.</p>
+      </div>
+      <div class="materiel-grid reveal">
+        <figure><img src="images/materiel-02.jpg" loading="lazy" alt="Intervention extérieure sur véhicule par Nova Clean"></figure>
+        <figure><img src="images/materiel-03.jpg" loading="lazy" alt="Camionnette et matériel professionnel Nova Clean sur site"></figure>
+        <figure><img src="images/materiel-04.jpg" loading="lazy" alt="Aspirateur professionnel utilisé lors d'une intervention Nova Clean"></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ZONE D'INTERVENTION ===================== -->
+  <section class="section zone-section" id="zone">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Zone d'intervention</p>
+        <h2>On se déplace dans tout le Brabant wallon.</h2>
+      </div>
+      <ul class="zone-chips reveal">
+        <li class="is-base">Chaumont-Gistoux (siège)</li>
+        <li>Rixensart</li>
+        <li>Court-Saint-Étienne</li>
+        <li>Ramillies-Offus</li>
+        <li>Grez-Doiceau</li>
+        <li>Gembloux</li>
+        <li>Louvain-la-Neuve</li>
+        <li>Incourt</li>
+        <li>Perwez</li>
+        <li>Wavre</li>
+        <li>Jodoigne</li>
+        <li>Chastre</li>
+      </ul>
+      <p class="zone-note">Une autre commune du Brabant wallon ? Contactez-nous, on regarde ensemble.</p>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section class="section" id="contact" style="background:var(--paper);">
+    <div class="container contact-grid">
+      <div class="contact-info reveal">
+        <p class="eyebrow">Contact</p>
+        <h2>Discutons de votre projet.</h2>
+        <p class="lead">Devis gratuit et sans engagement. Décrivez votre besoin, on vous répond rapidement.</p>
+        <div class="contact-direct">
+          <a href="tel:+32473239370">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            +32 473 23 93 70
+          </a>
+        </div>
+      </div>
+
+      <form class="contact-form reveal" id="devisForm" action="https://formsubmit.co/mateo.piret08@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="Nouvelle demande de devis — Nova Clean">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="true">
+        <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off">
+        <div class="form-row">
+          <label for="nom">Nom complet</label>
+          <input type="text" id="nom" name="Nom" required autocomplete="name">
+        </div>
+        <div class="form-two">
+          <div class="form-row">
+            <label for="telephone">Téléphone</label>
+            <input type="tel" id="telephone" name="Téléphone" required autocomplete="tel">
+          </div>
+          <div class="form-row">
+            <label for="prestation">Formule souhaitée</label>
+            <select id="prestation" name="Formule souhaitée" required>
+              <option value="">Choisir…</option>
+              <option value="Formule Quotidienne — 35€">Formule Quotidienne — 35€</option>
+              <option value="Formule Premium — 55€">Formule Premium — 55€</option>
+              <option value="Formule Intense — 80€">Formule Intense — 80€</option>
+              <option value="Canapé / tissu d'ameublement">Canapé / tissu d'ameublement</option>
+              <option value="Autre">Autre</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <label for="message">Message</label>
+          <textarea id="message" name="Message" rows="4" placeholder="Décrivez votre véhicule, votre canapé, ou votre besoin…"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block" id="formSubmitBtn">Envoyer la demande</button>
+        <p class="form-note">Réponse rapide — généralement sous 24h.</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <!-- LOGO -->
+      <div class="footer-logo">
+        <span class="logo-mark">
+          <img src="images/logo-icon-native.png" alt="">
+        </span>
+        Nova Clean
+      </div>
+      <div class="footer-meta">
+        <span>+32 473 23 93 70</span>
+        <span>Chaumont-Gistoux — Brabant wallon</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Nova Clean. Tous droits réservés.</span>
+      <span>Nettoyage auto & ameublement</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ===================== MOBILE NAV ===================== */
+(function(){
+  const toggle = document.getElementById('navToggle');
+  const panel = document.getElementById('mobilePanel');
+  const closeBtn = document.getElementById('mobilePanelClose');
+  function openPanel(){
+    panel.classList.add('is-open');
+    toggle.setAttribute('aria-expanded', 'true');
+  }
+  function closePanel(){
+    panel.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }
+  toggle.addEventListener('click', function(){
+    panel.classList.contains('is-open') ? closePanel() : openPanel();
+  });
+  closeBtn.addEventListener('click', closePanel);
+  panel.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', closePanel);
+  });
+})();
+
+/* ===================== REVEAL ON SCROLL ===================== */
+(function(){
+  if (!('IntersectionObserver' in window)) return;
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting){
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  els.forEach(function(el){ io.observe(el); });
+})();
+
+/* ===================== CAROUSELS (native scroll-snap) ===================== */
+(function(){
+  document.querySelectorAll('[data-carousel]').forEach(function(root){
+    const track = root.querySelector('.carousel-track');
+    const slides = root.querySelectorAll('.carousel-slide');
+    const prevBtn = root.querySelector('.carousel-arrow--prev');
+    const nextBtn = root.querySelector('.carousel-arrow--next');
+    const currentEl = root.querySelector('[data-current]');
+    const total = slides.length;
+
+    function currentIndex(){
+      if (track.clientWidth === 0) return 0;
+      return Math.round(track.scrollLeft / track.clientWidth);
+    }
+    function goTo(i){
+      const wrapped = i < 0 || i >= total;
+      const idx = ((i % total) + total) % total;
+      track.scrollTo({ left: idx * track.clientWidth, behavior: wrapped ? 'auto' : 'smooth' });
+    }
+    function refreshCounter(){
+      if (currentEl) currentEl.textContent = currentIndex() + 1;
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', function(){ goTo(currentIndex() - 1); });
+    if (nextBtn) nextBtn.addEventListener('click', function(){ goTo(currentIndex() + 1); });
+
+    let scrollTimer = null;
+    track.addEventListener('scroll', function(){
+      if (scrollTimer) clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(refreshCounter, 80);
+    }, { passive: true });
+
+    window.addEventListener('resize', function(){
+      track.scrollTo({ left: currentIndex() * track.clientWidth, behavior: 'auto' });
+    });
+
+    if (prevBtn) prevBtn.classList.toggle('hidden', total <= 1);
+    if (nextBtn) nextBtn.classList.toggle('hidden', total <= 1);
+    refreshCounter();
+  });
+})();
+
+/* ===================== PRICING CTA -> PREFILL FORM ===================== */
+(function(){
+  document.querySelectorAll('.price-cta').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      const sel = document.getElementById('prestation');
+      if (sel && btn.dataset.service){ sel.value = btn.dataset.service; }
+    });
+  });
+})();
+
+
+</script>
+</body>
+</html>
