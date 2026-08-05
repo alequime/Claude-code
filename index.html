@@ -319,30 +319,57 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .hero-stage{
   position: relative;
   height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.hero-float-scene{
+
+/* ===================== HERO — PHOTOS EXEMPLE (discret) ===================== */
+.hero-shots{
+  position: relative;
+  width: min(360px, 88%);
+  aspect-ratio: 4 / 5;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.14);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.10) inset, 0 34px 64px -20px rgba(0,0,0,0.65), 0 12px 26px -12px rgba(0,0,0,0.55);
+}
+.hero-shots::after{
+  content:"";
   position:absolute; inset:0;
+  background: linear-gradient(180deg, rgba(6,11,18,0) 50%, rgba(6,11,18,0.62) 100%);
+  pointer-events:none;
 }
-.float-obj{
-  position:absolute;
-  filter: drop-shadow(0 10px 12px rgba(0,0,0,0.32));
+.hero-shot{
+  position:absolute; inset:0; margin:0;
+  opacity:0;
+  transition: opacity 1s ease;
 }
-.float-sofa{
-  left: 0%; bottom: 14%;
-  width: 68%;
+.hero-shot.is-active{ opacity:1; }
+.hero-shot img{ width:100%; height:100%; object-fit:cover; display:block; }
+.hero-shots-caption{
+  position:absolute; left:18px; bottom:16px; z-index:2;
+  color: rgba(255,255,255,0.9); font-family: var(--font-mono); font-size:0.8rem;
 }
-.float-car{
-  right: -2%; top: 8%;
-  width: 74%;
+.hero-shots-count{
+  position:absolute; right:18px; bottom:16px; z-index:2;
+  color: rgba(255,255,255,0.55); font-family: var(--font-mono); font-size:0.76rem;
 }
-@media (prefers-reduced-motion: no-preference){
-  .float-car{ animation: floatY 6.5s ease-in-out infinite; }
-  .float-sofa{ animation: floatY 7.5s ease-in-out infinite; animation-delay: -2.4s; }
+.hero-shots-arrow{
+  position:absolute; top:50%; transform: translateY(-50%);
+  width:40px; height:40px; border-radius:50%; z-index:3;
+  display:flex; align-items:center; justify-content:center;
+  background: rgba(255,255,255,0.10);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.22);
+  color:#fff;
+  transition: background .2s ease, transform .2s ease, border-color .2s ease;
 }
-@keyframes floatY{
-  0%, 100%{ transform: translateY(0); }
-  50%{ transform: translateY(-14px); }
-}
+.hero-shots-arrow:hover{ background: rgba(255,255,255,0.24); border-color: rgba(255,255,255,0.5); transform: translateY(-50%) scale(1.08); }
+.hero-shots-arrow svg{ width:17px; height:17px; }
+.hero-shots-arrow--prev{ left:12px; }
+.hero-shots-arrow--next{ right:12px; }
 
 /* ===================== CARD (partagée) ===================== */
 .card{
@@ -617,9 +644,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .map-frame{
   position:relative; border-radius: var(--radius); overflow:hidden;
   box-shadow: var(--shadow-3d); border: 1px solid var(--panel-border);
-  aspect-ratio: 4/3; background: var(--panel-solid);
+  aspect-ratio: 4/3; min-height: 360px; background: var(--panel-solid);
 }
-#zoneMap{ width:100%; height:100%; }
+#zoneMap{ width:100%; height:100%; background: var(--panel-solid); }
+#zoneMap .leaflet-container{ width:100%; height:100%; background: var(--panel-solid); font-family: var(--font-body); }
+#zoneMap .leaflet-control-attribution{ font-size: 0.68rem; }
 .map-sector-pill{
   position:absolute; left:16px; bottom:16px; z-index:450;
   background: linear-gradient(180deg, var(--nova-light), var(--nova));
@@ -855,9 +884,16 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
       </div>
 
       <div class="hero-stage" id="heroStage">
-        <div class="hero-float-scene">
-          <img class="float-obj float-sofa" src="images/hero-sofa-gris-cutout.png" alt="Canapé nettoyé par Nova Clean" loading="eager">
-          <img class="float-obj float-car" src="images/hero-m4-cutout.png" alt="BMW M4 nettoyée par Nova Clean" loading="eager">
+        <div class="hero-shots" data-hero-shots>
+          <figure class="hero-shot" data-caption="Volkswagen Golf — extérieur"><img src="images/golf-01.jpg" alt="Volkswagen Golf nettoyée par Nova Clean" loading="eager"></figure>
+          <figure class="hero-shot" data-caption="Canapé en suédine"><img src="images/canape-apres-2.jpg" alt="Canapé en suédine nettoyé par Nova Clean" loading="lazy"></figure>
+          <figure class="hero-shot" data-caption="Audi A1 — habitacle"><img src="images/audi-apres-2.jpg" alt="Habitacle de l'Audi A1 nettoyé par Nova Clean" loading="lazy"></figure>
+          <figure class="hero-shot" data-caption="Canapé d'angle en tissu"><img src="images/canape-gris-apres-2.jpg" alt="Canapé gris nettoyé par Nova Clean" loading="lazy"></figure>
+          <figure class="hero-shot" data-caption="Volkswagen Golf — banquette arrière"><img src="images/golf-07.jpg" alt="Banquette arrière de la Golf nettoyée par Nova Clean" loading="lazy"></figure>
+          <span class="hero-shots-caption" data-hero-shots-caption></span>
+          <span class="hero-shots-count" data-hero-shots-count></span>
+          <button type="button" class="hero-shots-arrow hero-shots-arrow--prev" aria-label="Photo précédente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+          <button type="button" class="hero-shots-arrow hero-shots-arrow--next" aria-label="Photo suivante"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
         </div>
       </div>
     </div>
@@ -1388,6 +1424,38 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   panel.querySelectorAll('a').forEach(function(a){
     a.addEventListener('click', closePanel);
   });
+})();
+
+/* ===================== HERO — PHOTOS EXEMPLE ===================== */
+(function(){
+  var root = document.querySelector('[data-hero-shots]');
+  if (!root) return;
+  var shots = root.querySelectorAll('.hero-shot');
+  var captionEl = root.querySelector('[data-hero-shots-caption]');
+  var countEl = root.querySelector('[data-hero-shots-count]');
+  var total = shots.length;
+  var idx = 0;
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function show(i){
+    idx = ((i % total) + total) % total;
+    shots.forEach(function(s, si){ s.classList.toggle('is-active', si === idx); });
+    if (captionEl) captionEl.textContent = shots[idx].dataset.caption || '';
+    if (countEl) countEl.textContent = (idx + 1) + ' / ' + total;
+  }
+
+  var timer = null;
+  function restartAutoplay(){
+    if (reduceMotion) return;
+    if (timer) clearInterval(timer);
+    timer = setInterval(function(){ show(idx + 1); }, 5000);
+  }
+
+  root.querySelector('.hero-shots-arrow--prev').addEventListener('click', function(){ show(idx - 1); restartAutoplay(); });
+  root.querySelector('.hero-shots-arrow--next').addEventListener('click', function(){ show(idx + 1); restartAutoplay(); });
+
+  show(0);
+  restartAutoplay();
 })();
 
 /* ===================== REVEAL ON SCROLL ===================== */
