@@ -166,25 +166,27 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
 /* ===================== BUTTONS ===================== */
 .btn{
-  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-  padding: 15px 26px;
-  border-radius: 100px;
-  font-weight: 700;
+  display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+  padding: 14px 25px;
+  border-radius: 12px;
+  font-weight: 600;
   font-size: 0.95rem;
+  letter-spacing: -0.01em;
   border: 1px solid transparent;
-  transition: transform .25s ease, box-shadow .25s ease, background .25s ease, border-color .25s ease;
+  transition: transform .16s cubic-bezier(.2,.8,.2,1), box-shadow .16s ease, background-color .16s ease, border-color .16s ease;
   white-space: nowrap;
 }
+.btn:active{ transform: translateY(1px) !important; }
 .btn-primary{
-  background: linear-gradient(180deg, var(--nova-light) 0%, var(--nova) 42%, var(--nova-deep) 100%);
+  background: var(--nova);
   color: #fff;
-  box-shadow: 0 1px 0 rgba(255,255,255,0.45) inset, 0 -3px 8px rgba(0,0,0,0.18) inset, 0 14px 32px -10px rgba(18,74,148,0.65);
+  box-shadow: 0 1px 2px rgba(11,20,32,0.08), 0 10px 24px -12px rgba(28,111,209,0.65);
 }
-.btn-primary:hover{ background: linear-gradient(180deg, var(--nova-light) 0%, var(--nova-deep) 100%); transform: translateY(-2px); }
-.btn-ghost{ background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02)); color: #fff; border-color: rgba(255,255,255,0.35); box-shadow: 0 1px 0 rgba(255,255,255,0.15) inset; }
-.btn-ghost:hover{ border-color: rgba(255,255,255,0.8); transform: translateY(-2px); }
-.btn-dark{ background: linear-gradient(180deg, var(--ink-soft) 0%, var(--ink) 100%); color:#fff; box-shadow: 0 1px 0 rgba(255,255,255,0.08) inset, 0 14px 30px -12px rgba(0,0,0,0.55); }
-.btn-dark:hover{ background: linear-gradient(180deg, var(--ink-line) 0%, var(--ink-soft) 100%); transform: translateY(-2px); }
+.btn-primary:hover{ background: var(--nova-deep); box-shadow: 0 1px 2px rgba(11,20,32,0.08), 0 14px 28px -12px rgba(28,111,209,0.7); transform: translateY(-2px); }
+.btn-ghost{ background: transparent; color: #fff; border-color: rgba(255,255,255,0.32); }
+.btn-ghost:hover{ background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.65); transform: translateY(-2px); }
+.btn-dark{ background: var(--ink); color:#fff; box-shadow: 0 1px 2px rgba(0,0,0,0.2), 0 10px 22px -12px rgba(0,0,0,0.55); }
+.btn-dark:hover{ background: var(--ink-soft); box-shadow: 0 1px 2px rgba(0,0,0,0.2), 0 14px 26px -12px rgba(0,0,0,0.6); transform: translateY(-2px); }
 .btn-block{ width: 100%; }
 
 /* ===================== HEADER ===================== */
@@ -480,11 +482,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 }
 .price-badge{
   position:absolute; top:-14px; left:32px;
-  background: linear-gradient(180deg, var(--nova-light), var(--nova));
+  background: var(--nova);
   color:#fff;
   font-family: var(--font-mono); font-size: 0.74rem; letter-spacing:.03em;
   padding: 7px 15px; border-radius: 100px;
-  box-shadow: 0 1px 0 rgba(255,255,255,0.5) inset, 0 8px 16px -6px rgba(18,74,148,0.55);
+  box-shadow: 0 8px 16px -6px rgba(18,74,148,0.55);
 }
 .price-card h3{ font-size: 1.2rem; margin-bottom: 10px; }
 .price-amount{ font-family: var(--font-display); font-size: 2.8rem; font-weight: 800; color: var(--heading); margin-bottom: 4px; text-shadow: var(--heading-shadow); }
@@ -651,10 +653,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 #zoneMap .leaflet-control-attribution{ font-size: 0.68rem; }
 .map-sector-pill{
   position:absolute; left:16px; bottom:16px; z-index:450;
-  background: linear-gradient(180deg, var(--nova-light), var(--nova));
+  background: var(--nova);
   color:#fff; font-family: var(--font-mono); font-weight:700; font-size:0.78rem; letter-spacing:.04em; text-transform:uppercase;
   padding: 10px 18px; border-radius:100px;
-  box-shadow: 0 1px 0 rgba(255,255,255,0.5) inset, 0 10px 22px -8px rgba(18,74,148,0.6);
+  box-shadow: 0 10px 22px -8px rgba(18,74,148,0.6);
 }
 .zone-note-card{ margin-top:20px; padding: 20px 24px; }
 .zone-note-card strong{ display:block; color:var(--heading); font-size:1rem; }
