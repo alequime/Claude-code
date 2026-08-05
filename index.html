@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paysages Intemporels — Architecte paysagiste &amp; entrepreneur de jardin, Brabant wallon</title>
+<meta name="description" content="Paysages Intemporels SRL conçoit et réalise des jardins sur mesure dans le Brabant wallon : plans d'architecte paysagiste, création, aménagement et entretien d'espaces verts.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231F3226'/%3E%3Cpath d='M16 26C16 26 9 21 9 14C9 9.5 12.5 6 16 6C19.5 6 23 9.5 23 14C23 21 16 26 16 26Z' fill='none' stroke='%23C79A52' stroke-width='1.4'/%3E%3Cpath d='M16 24V9' stroke='%23C79A52' stroke-width='1.2'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ============ TOKENS ============ */
+  :root{
+    --ink: #1D2A21;
+    --forest: #1F3226;
+    --forest-deep: #172319;
+    --moss: #5C7A50;
+    --moss-dark: #3B5534;
+    --linen: #F7F3E8;
+    --linen-deep: #EFE7D2;
+    --stone: #DCD3B9;
+    --brass: #C79A52;
+    --brass-text: #8C6530;
+    --white: #FFFDF8;
+    --shadow: 0 30px 60px -25px rgba(23,35,25,0.35);
+    --ease: cubic-bezier(.22,1,.36,1);
+    --space-1: .5rem;
+    --space-2: 1rem;
+    --space-3: 1.5rem;
+    --space-4: 2.5rem;
+    --space-5: 4rem;
+    --space-6: 6rem;
+    --space-7: 9rem;
+    --maxw: 1280px;
+  }
+
+  *,*::before,*::after{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    background: var(--linen);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  img{ max-width:100%; display:block; }
+  a{ color: inherit; text-decoration:none; }
+  ul{ margin:0; padding:0; list-style:none; }
+  h1,h2,h3{ font-family:'Fraunces', serif; font-weight:500; margin:0; letter-spacing:-.01em; }
+  p{ margin:0; }
+  button{ font-family:inherit; cursor:pointer; }
+  .container{ max-width: var(--maxw); margin:0 auto; padding:0 var(--space-4); }
+  @media (max-width:720px){ .container{ padding:0 var(--space-3); } }
+
+  :focus-visible{ outline: 2px solid var(--brass); outline-offset: 3px; border-radius: 2px; }
+
+  .skip-link{
+    position:absolute; left:1rem; top:-4rem; background:var(--forest); color:var(--linen);
+    padding:.8rem 1.2rem; border-radius:.4rem; z-index:999; transition: top .25s var(--ease);
+    font-family:'IBM Plex Mono', monospace; font-size:.85rem;
+  }
+  .skip-link:focus{ top:1rem; }
+
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.72rem;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    display:inline-flex; align-items:center; gap:.6rem;
+    font-weight:500;
+  }
+  .eyebrow::before{
+    content:''; width:1.6rem; height:1px; background:currentColor; display:inline-block; opacity:.6;
+  }
+  .eyebrow--dark{ color: var(--brass); }
+  .eyebrow--light{ color: var(--brass-text); }
+
+  .pill{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.76rem;
+    letter-spacing:.03em;
+    padding:.5rem 1rem;
+    border-radius:100px;
+    border:1px solid rgba(29,42,33,.18);
+    color: var(--moss-dark);
+    background: rgba(255,253,248,.5);
+    white-space:nowrap;
+  }
+
+  .btn{
+    display:inline-flex; align-items:center; gap:.6rem;
+    padding: 1rem 1.7rem;
+    border-radius: 100px;
+    font-weight:600;
+    font-size:.95rem;
+    border: 1px solid transparent;
+    transition: transform .45s var(--ease), box-shadow .45s var(--ease), background .3s ease, color .3s ease, border-color .3s ease;
+    white-space:nowrap;
+  }
+  .btn:hover{ transform: translateY(-3px); }
+  .btn-primary{
+    background: linear-gradient(160deg, #B78A44, #8C6530);
+    color: var(--white);
+    box-shadow: 0 16px 30px -14px rgba(140,101,48,.65);
+  }
+  .btn-primary:hover{ box-shadow: 0 22px 38px -14px rgba(140,101,48,.75); }
+  .btn-ghost-light{
+    border-color: rgba(247,243,232,.4);
+    color: var(--linen);
+  }
+  .btn-ghost-light:hover{ background: rgba(247,243,232,.1); border-color: rgba(247,243,232,.7); }
+  .btn-ghost-dark{
+    border-color: rgba(29,42,33,.25);
+    color: var(--ink);
+  }
+  .btn-ghost-dark:hover{ background: rgba(29,42,33,.06); border-color: var(--moss-dark); }
+  .btn svg{ width:16px; height:16px; transition: transform .3s var(--ease); }
+  .btn:hover svg{ transform: translateX(3px); }
+
+  /* ============ SCROLL PROGRESS ============ */
+  .scroll-progress{
+    position:fixed; top:0; left:0; height:3px; width:0%;
+    background: linear-gradient(90deg, var(--brass), var(--moss));
+    z-index:1000; transition: width .1s linear;
+  }
+
+  /* ============ HEADER ============ */
+  .site-header{
+    position:fixed; top:0; left:0; right:0; z-index:200;
+    padding: 1.1rem 0;
+    background: rgba(247,243,232,.94);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(29,42,33,.08);
+    transition: padding .4s var(--ease), box-shadow .4s var(--ease);
+  }
+  .site-header.is-scrolled{
+    padding: .8rem 0;
+    box-shadow: 0 10px 30px -20px rgba(0,0,0,.25);
+  }
+  .header-inner{ display:grid; grid-template-columns: 1fr auto 1fr; align-items:center; column-gap:1.5rem; }
+  .brand{ display:flex; align-items:center; gap:.8rem; justify-self:start; }
+  .brand img{
+    height:38px; width:auto; background:#fff; border-radius:.5rem;
+    padding:.35rem .6rem; box-shadow: 0 2px 8px rgba(29,42,33,.08);
+  }
+  .brand-name{
+    font-family:'Fraunces', serif; font-size:1.15rem; font-weight:600; letter-spacing:.01em;
+    color: var(--forest);
+  }
+
+  .main-nav{ display:flex; align-items:center; gap:2.2rem; justify-self:center; }
+  .main-nav a{
+    font-size:.92rem; font-weight:500; color: var(--ink);
+    position:relative; padding:.3rem 0; transition: color .3s ease;
+  }
+  .main-nav a::after{
+    content:''; position:absolute; left:0; bottom:-2px; width:0; height:1.5px;
+    background: var(--brass); transition: width .3s var(--ease);
+  }
+  .main-nav a:hover::after{ width:100%; }
+
+  .header-actions{ display:flex; align-items:center; gap:1.2rem; justify-self:end; }
+  .header-phone{
+    font-family:'IBM Plex Mono', monospace; font-size:.85rem; color: var(--moss-dark);
+    display:flex; align-items:center; gap:.5rem;
+  }
+
+  .nav-toggle{
+    display:none; width:44px; height:44px; border:none; background:transparent;
+    position:relative; flex-shrink:0;
+  }
+  .nav-toggle span, .nav-toggle span::before, .nav-toggle span::after{
+    content:''; position:absolute; left:10px; right:10px; height:2px; background: var(--forest);
+    transition: transform .3s var(--ease), opacity .3s var(--ease), background .3s ease;
+  }
+  .nav-toggle span{ top:21px; }
+  .nav-toggle span::before{ top:-8px; }
+  .nav-toggle span::after{ top:8px; }
+  .nav-toggle.is-open span{ background: transparent; }
+  .nav-toggle.is-open span::before{ top:0; transform: rotate(45deg); }
+  .nav-toggle.is-open span::after{ top:0; transform: rotate(-45deg); }
+
+  @media (max-width: 900px){
+    .header-inner{ display:flex; align-items:center; justify-content:space-between; }
+    .main-nav{
+      position:fixed; top:0; right:0; height:100vh; width:min(340px,84vw);
+      background: var(--forest); flex-direction:column; align-items:flex-start; justify-content:center;
+      gap: 1.8rem; padding: 3rem;
+      transform: translateX(100%); transition: transform .5s var(--ease);
+    }
+    .main-nav.is-open{ transform: translateX(0); }
+    .main-nav a{ color: var(--linen) !important; font-size:1.3rem; font-family:'Fraunces',serif; }
+    .header-phone{ display:none; }
+    .nav-toggle{ display:block; }
+  }
+
+  /* ============ HERO ============ */
+  .section-hero{
+    position:relative; min-height:100vh; display:flex; align-items:flex-end;
+    overflow:hidden; background: var(--forest-deep);
+  }
+  .hero-media{ position:absolute; inset:0; z-index:0; }
+  .hero-media img{
+    width:100%; height:100%; object-fit:cover; position:absolute; inset:0;
+    transform: scale(1.02) translateY(0px);
+    will-change: transform;
+  }
+  .hero-media::after{
+    content:''; position:absolute; inset:0;
+    background:
+      linear-gradient(180deg, rgba(23,35,25,.35) 0%, rgba(23,35,25,.35) 30%, rgba(20,29,21,.92) 100%),
+      linear-gradient(90deg, rgba(20,29,21,.55) 0%, rgba(20,29,21,0) 45%);
+  }
+  .hero-blueprint{
+    position:absolute; right:-4%; top:6%; width:min(620px,58vw); opacity:.9; z-index:1;
+    pointer-events:none;
+  }
+  .hero-blueprint svg{ width:100%; height:auto; overflow:visible; }
+  .bp-line{ fill:none; stroke: rgba(247,243,232,.5); stroke-width:1.1; }
+  .bp-line-accent{ fill:none; stroke: var(--brass); stroke-width:1.3; }
+  .bp-leaf{ fill: rgba(199,154,82,.85); }
+  .bp-dot{ fill: var(--linen); }
+  .bp-label{ font-family:'IBM Plex Mono', monospace; font-size:9px; fill: rgba(247,243,232,.55); letter-spacing:.06em; }
+
+  #leafCanvas{ position:absolute; inset:0; z-index:1; pointer-events:none; }
+
+  .hero-content{
+    position:relative; z-index:2; width:100%;
+    padding-top: 9rem; padding-bottom: 5.5rem;
+    padding-left: clamp(1.75rem, 7vw, 6rem);
+    padding-right: clamp(1.75rem, 7vw, 6rem);
+  }
+  .hero-content .eyebrow{ color: var(--brass); margin-bottom: 1.6rem; }
+  .hero-title{
+    color: var(--linen);
+    font-size: clamp(2.2rem, 5.1vw, 4.5rem);
+    line-height: 1.03;
+    max-width: 16ch;
+  }
+  .hero-title em{ font-style:italic; font-weight:400; color: var(--brass); }
+  .hero-sub{
+    color: rgba(247,243,232,.78);
+    max-width: 44ch;
+    font-size: clamp(.98rem, 1.2vw, 1.1rem);
+    margin-top: 1.5rem;
+  }
+  .hero-ctas{
+    display:flex; gap:1rem; flex-wrap:wrap; margin-top: 2.6rem;
+    justify-content:center;
+    width:88%; margin-left:12%;
+  }
+  @media (max-width: 720px){
+    .hero-ctas{ width:100%; margin-left:0; justify-content:flex-start; }
+  }
+  .hero-scroll-cue{
+    position:absolute; right: var(--space-4); bottom: 2.2rem; z-index:2;
+    display:flex; align-items:center; gap:.7rem;
+    color: rgba(247,243,232,.6);
+    font-family:'IBM Plex Mono', monospace; font-size:.7rem; letter-spacing:.16em;
+  }
+  .hero-scroll-cue .line{ width:1px; height:34px; background: rgba(247,243,232,.4); position:relative; overflow:hidden; }
+  .hero-scroll-cue .line::after{
+    content:''; position:absolute; top:-100%; left:0; width:100%; height:100%; background: var(--brass);
+    animation: scrollcue 2.2s infinite ease-in-out;
+  }
+  @keyframes scrollcue{ 0%{ top:-100%; } 60%{ top:100%; } 100%{ top:100%; } }
+  @media (max-width: 720px){
+    .hero-scroll-cue{ display:none; }
+    .hero-blueprint{ width: 78vw; top:2%; opacity:.55; }
+  }
+
+  /* reveal-up utility */
+  .reveal{ opacity:0; transform: translateY(28px); transition: opacity .9s var(--ease), transform .9s var(--ease); }
+  .reveal.is-visible{ opacity:1; transform: translateY(0); }
+  .reveal-stagger > *{ opacity:0; transform: translateY(24px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+  .reveal-stagger.is-visible > *{ opacity:1; transform: translateY(0); }
+  .reveal-stagger.is-visible > *:nth-child(1){ transition-delay: .05s; }
+  .reveal-stagger.is-visible > *:nth-child(2){ transition-delay: .16s; }
+  .reveal-stagger.is-visible > *:nth-child(3){ transition-delay: .27s; }
+  .reveal-stagger.is-visible > *:nth-child(4){ transition-delay: .38s; }
+  .reveal-stagger.is-visible > *:nth-child(5){ transition-delay: .49s; }
+  .reveal-stagger.is-visible > *:nth-child(6){ transition-delay: .6s; }
+
+  /* ============ DIVIDER SIGNATURE ============ */
+  .contour-divider{ display:flex; justify-content:center; padding: 0; }
+  .contour-divider svg{ width: 220px; height: 26px; opacity:.55; }
+  .contour-divider path{ fill:none; stroke: var(--moss-dark); stroke-width:1.2; }
+  .section-forest-bg + .contour-divider path,
+  .contour-divider.on-dark path{ stroke: var(--brass); }
+
+  /* ============ ABOUT ============ */
+  .section-about{ padding: var(--space-7) 0 var(--space-6); background: var(--linen); }
+  .about-grid{ display:grid; grid-template-columns: 1.05fr .95fr; gap: var(--space-6); align-items:start; }
+  .about-heading{ font-size: clamp(1.9rem, 3.4vw, 2.9rem); margin: 1rem 0 1.6rem; max-width: 14ch; }
+  .about-text p{ color: rgba(29,42,33,.82); max-width: 56ch; margin-bottom: 1.1rem; }
+  .about-tags{ display:flex; flex-wrap:wrap; gap:.6rem; margin-top: 1.6rem; }
+
+  .stat-rail{ display:flex; flex-direction:column; gap: 1.6rem; border-left: 1px solid rgba(29,42,33,.15); padding-left: 2.2rem; }
+  .stat-item .stat-num{
+    font-family:'Fraunces', serif; font-style:italic; font-weight:500; font-size: 2.6rem; color: var(--moss-dark);
+    display:block; line-height:1;
+  }
+  .stat-item .stat-label{ font-size:.92rem; color: rgba(29,42,33,.68); margin-top:.5rem; display:block; max-width: 30ch; }
+
+  @media (max-width: 900px){
+    .about-grid{ grid-template-columns: 1fr; gap: 3rem; }
+    .stat-rail{ flex-direction:row; flex-wrap:wrap; border-left:none; padding-left:0; border-top:1px solid rgba(29,42,33,.15); padding-top:1.6rem; }
+    .stat-item{ flex:1 1 40%; }
+  }
+
+  /* ============ DISCIPLINES ============ */
+  .section-disciplines{ padding: var(--space-6) 0; background: var(--forest); position:relative; overflow:hidden; }
+  .section-disciplines::before{
+    content:''; position:absolute; inset:0;
+    background: radial-gradient(70% 60% at 85% 10%, rgba(199,154,82,.10), transparent 60%);
+    pointer-events:none;
+  }
+  .disciplines-head{ text-align:center; max-width: 620px; margin: 0 auto var(--space-5); position:relative; z-index:1; }
+  .disciplines-head h2{ color: var(--linen); font-size: clamp(1.9rem, 3.6vw, 3rem); margin-top: 1rem; }
+  .disciplines-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 2.4rem; position:relative; z-index:1; }
+  .discipline-card{
+    perspective: 1400px;
+  }
+  .discipline-card-inner{
+    background: rgba(247,243,232,.04);
+    border: 1px solid rgba(247,243,232,.14);
+    border-radius: 1.4rem;
+    overflow:hidden;
+    transition: transform .25s var(--ease), box-shadow .25s var(--ease), border-color .3s ease;
+    transform-style: preserve-3d;
+    will-change: transform;
+  }
+  .discipline-card-inner:hover{ border-color: rgba(199,154,82,.5); box-shadow: 0 40px 70px -35px rgba(0,0,0,.6); }
+  .discipline-media{ aspect-ratio: 4/3; overflow:hidden; }
+  .discipline-media img{ width:100%; height:100%; object-fit:cover; transition: transform .7s var(--ease); }
+  .discipline-card-inner:hover .discipline-media img{ transform: scale(1.06); }
+  .discipline-body{ padding: 2.2rem 2.2rem 2.4rem; }
+  .discipline-body h3{ color: var(--linen); font-size: 1.6rem; margin: .9rem 0 1rem; }
+  .discipline-body p{ color: rgba(247,243,232,.72); margin-bottom: 1.4rem; }
+  .discipline-link{ display:inline-flex; align-items:center; gap:.5rem; color: var(--brass); font-weight:600; font-size:.92rem; }
+  .discipline-link svg{ width:14px; height:14px; transition: transform .3s var(--ease); }
+  .discipline-link:hover svg{ transform: translateX(4px); }
+
+  @media (max-width: 860px){ .disciplines-grid{ grid-template-columns:1fr; } }
+
+  /* ============ PROCESS ============ */
+  .section-process{ padding: var(--space-7) 0 var(--space-6); background: var(--linen); }
+  .process-head{ max-width: 620px; margin: 0 auto var(--space-6); text-align:center; }
+  .process-head h2{ font-size: clamp(1.9rem, 3.6vw, 3rem); margin-top:1rem; }
+  .process-track{
+    display:grid; grid-template-columns: repeat(4,1fr); gap: 2.4rem; position:relative;
+  }
+  .process-track::before{
+    content:''; position:absolute; top:22px; left: 12%; right:12%; height:1px; background: rgba(29,42,33,.18);
+  }
+  .process-track::after{
+    content:''; position:absolute; top:22px; left:12%; width:0%; height:1px; background: var(--brass);
+    transition: width 1.4s var(--ease) .2s;
+  }
+  .process-track.is-visible::after{ width: 76%; }
+  .process-step{ position:relative; }
+  .process-num{
+    width:46px; height:46px; border-radius:50%; background: var(--linen);
+    border: 1.5px solid var(--moss-dark); color: var(--moss-dark);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Fraunces', serif; font-style:italic; font-size:1.15rem;
+    position:relative; z-index:1; margin-bottom: 1.4rem;
+  }
+  .process-step h3{ font-size: 1.25rem; margin-bottom: .7rem; }
+  .process-step p{ color: rgba(29,42,33,.75); font-size:.96rem; margin-bottom: 1rem; }
+  .process-media{ border-radius: .9rem; overflow:hidden; aspect-ratio: 4/3; margin-bottom:1.2rem; }
+  .process-media img{ width:100%; height:100%; object-fit:cover; }
+  .process-note{
+    font-family:'IBM Plex Mono', monospace; font-size:.74rem; color: var(--brass-text);
+    background: var(--linen-deep); border-radius:.6rem; padding:.7rem .8rem; line-height:1.5;
+  }
+  @media (max-width: 900px){
+    .process-track{ grid-template-columns: 1fr; gap: 2.6rem; }
+    .process-track::before, .process-track::after{ display:none; }
+  }
+
+  /* ============ SERVICES ============ */
+  .section-services{ padding: var(--space-6) 0; background: var(--stone); }
+  .services-head{ max-width: 620px; margin-bottom: var(--space-5); }
+  .services-head h2{ font-size: clamp(1.9rem, 3.6vw, 3rem); margin-top:1rem; }
+  .services-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap: 2rem; }
+  .service-card{
+    background: var(--linen); border-radius: 1.2rem; overflow:hidden;
+    display:flex; flex-direction:column;
+    box-shadow: 0 30px 50px -38px rgba(29,42,33,.35);
+  }
+  .service-media{ aspect-ratio: 16/11; overflow:hidden; position:relative; }
+  .service-media img{ width:100%; height:100%; object-fit:cover; transition: transform .6s var(--ease); }
+  .service-card:hover .service-media img{ transform: scale(1.05); }
+  .service-icon{
+    position:absolute; left:1.2rem; bottom:-1.2rem; width:2.6rem; height:2.6rem; border-radius:50%;
+    background: var(--forest); display:flex; align-items:center; justify-content:center;
+    box-shadow: 0 10px 20px -8px rgba(0,0,0,.4);
+  }
+  .service-icon svg{ width:18px; height:18px; stroke: var(--brass); fill:none; stroke-width:1.5; }
+  .service-body{ padding: 2rem 1.6rem 1.8rem; flex:1; }
+  .service-body h3{ font-size:1.3rem; margin-bottom:.7rem; }
+  .service-body p{ color: rgba(29,42,33,.75); font-size:.94rem; }
+  @media (max-width: 900px){ .services-grid{ grid-template-columns:1fr; } }
+
+  /* ============ STYLES STRIP ============ */
+  .section-styles{ background: var(--forest-deep); padding: 3.4rem 0; }
+  .styles-inner{ display:flex; align-items:center; gap: 2.4rem; flex-wrap:wrap; justify-content:space-between; }
+  .styles-inner h3{ color: var(--linen); font-size: 1.3rem; max-width: 20ch; }
+  .styles-tags{ display:flex; flex-wrap:wrap; gap:.7rem; }
+  .styles-tags .pill{ color: var(--brass); border-color: rgba(199,154,82,.4); background: rgba(199,154,82,.06); }
+
+  /* ============ GALLERY ============ */
+  .section-gallery{ padding: var(--space-7) 0 var(--space-6); background: var(--linen); }
+  .gallery-head{ display:flex; justify-content:space-between; align-items:flex-end; gap:2rem; margin-bottom: var(--space-5); flex-wrap:wrap; }
+  .gallery-head h2{ font-size: clamp(1.9rem, 3.6vw, 3rem); margin-top:1rem; max-width: 16ch; }
+  .gallery-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap: 1.4rem; }
+  .gallery-item{
+    position:relative; border-radius: 1rem; overflow:hidden; aspect-ratio:1/1;
+    cursor:pointer;
+  }
+  .gallery-item img{ width:100%; height:100%; object-fit:cover; transition: transform .7s var(--ease); }
+  .gallery-item:hover img{ transform: scale(1.08); }
+  .gallery-caption{
+    position:absolute; inset:auto 0 0 0; padding: 1.6rem 1.2rem 1.1rem;
+    background: linear-gradient(0deg, rgba(23,35,25,.88), rgba(23,35,25,0));
+    color: var(--linen); font-family:'IBM Plex Mono', monospace; font-size:.76rem; letter-spacing:.05em;
+    opacity:0; transform: translateY(10px); transition: opacity .4s var(--ease), transform .4s var(--ease);
+  }
+  .gallery-item:hover .gallery-caption{ opacity:1; transform: translateY(0); }
+  @media (max-width: 900px){ .gallery-grid{ grid-template-columns: repeat(2,1fr); } }
+  @media (max-width: 560px){ .gallery-grid{ grid-template-columns: 1fr 1fr; gap: .8rem; } }
+
+  .lightbox{
+    position:fixed; inset:0; background: rgba(15,20,15,.94); z-index:500;
+    display:flex; align-items:center; justify-content:center; padding: 3rem;
+    opacity:0; pointer-events:none; transition: opacity .35s ease;
+  }
+  .lightbox.is-open{ opacity:1; pointer-events:auto; }
+  .lightbox img{ max-width: min(92vw, 1100px); max-height: 86vh; border-radius: .6rem; box-shadow: 0 40px 80px rgba(0,0,0,.6); }
+  .lightbox-close{
+    position:absolute; top: 1.6rem; right: 1.6rem; width:46px; height:46px; border-radius:50%;
+    background: rgba(247,243,232,.1); border:1px solid rgba(247,243,232,.3); color: var(--linen);
+    display:flex; align-items:center; justify-content:center; font-size:1.4rem;
+  }
+  .lightbox-close:hover{ background: rgba(247,243,232,.2); }
+
+  /* ============ CONTACT ============ */
+  .section-contact{ padding: var(--space-7) 0 var(--space-6); background: var(--forest); position:relative; overflow:hidden; }
+  .section-contact::before{
+    content:''; position:absolute; inset:0;
+    background: radial-gradient(60% 50% at 10% 90%, rgba(92,122,80,.18), transparent 60%);
+  }
+  .contact-grid{ display:grid; grid-template-columns: .85fr 1.15fr; gap: var(--space-6); position:relative; z-index:1; }
+  .contact-info h2{ color: var(--linen); font-size: clamp(1.9rem, 3.6vw, 2.8rem); margin: 1rem 0 1.2rem; }
+  .contact-info > p{ color: rgba(247,243,232,.72); max-width: 42ch; margin-bottom: 2.2rem; }
+  .contact-detail{ display:flex; gap:1rem; padding: 1.1rem 0; border-top: 1px solid rgba(247,243,232,.14); }
+  .contact-detail:last-of-type{ border-bottom: 1px solid rgba(247,243,232,.14); }
+  .contact-detail .ico{ width:20px; height:20px; stroke: var(--brass); fill:none; stroke-width:1.6; flex-shrink:0; margin-top:.2rem; }
+  .contact-detail strong{ display:block; color: var(--linen); font-weight:600; font-size:.98rem; }
+  .contact-detail span, .contact-detail a{ color: rgba(247,243,232,.68); font-size:.9rem; }
+  .contact-detail a:hover{ color: var(--brass); }
+  .contact-social{ margin-top: 1.8rem; display:flex; gap:.9rem; }
+  .contact-social a{
+    width:42px; height:42px; border-radius:50%; border:1px solid rgba(247,243,232,.25);
+    display:flex; align-items:center; justify-content:center; transition: border-color .3s, background .3s;
+  }
+  .contact-social a:hover{ border-color: var(--brass); background: rgba(199,154,82,.1); }
+  .contact-social svg{ width:18px; height:18px; fill: var(--linen); }
+
+  .contact-form{
+    background: var(--linen); border-radius: 1.4rem; padding: 2.4rem;
+    box-shadow: var(--shadow);
+  }
+  .form-row{ display:grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+  .field{ margin-bottom: 1.1rem; }
+  .field label{ display:block; font-size:.8rem; font-weight:600; margin-bottom:.45rem; color: var(--moss-dark); }
+  .field input, .field select, .field textarea{
+    width:100%; padding: .85rem 1rem; border-radius: .6rem; border: 1px solid rgba(29,42,33,.2);
+    background: var(--white); font-family:'Inter',sans-serif; font-size:.95rem; color: var(--ink);
+    transition: border-color .25s ease, box-shadow .25s ease;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{
+    border-color: var(--moss-dark); box-shadow: 0 0 0 3px rgba(92,122,80,.15); outline:none;
+  }
+  .field textarea{ min-height: 120px; resize: vertical; }
+  .form-note{ font-size:.8rem; color: rgba(29,42,33,.55); margin-top: -.3rem; margin-bottom: 1.2rem; }
+  .form-confirm{
+    display:none; align-items:center; gap:.6rem; color: var(--moss-dark); font-size:.88rem; font-weight:500;
+    background: rgba(92,122,80,.1); border-radius:.6rem; padding:.8rem 1rem; margin-top:1rem;
+  }
+  .form-confirm.is-shown{ display:flex; }
+  @media (max-width: 900px){
+    .contact-grid{ grid-template-columns:1fr; gap: 3rem; }
+    .contact-form{ padding: 1.6rem; }
+  }
+  @media (max-width:560px){ .form-row{ grid-template-columns:1fr; } }
+
+  /* ============ FOOTER ============ */
+  .site-footer{ background: var(--forest-deep); padding: var(--space-5) 0 var(--space-3); }
+  .footer-top{ display:flex; justify-content:space-between; gap: 3rem; flex-wrap:wrap; padding-bottom: var(--space-4); border-bottom: 1px solid rgba(247,243,232,.1); }
+  .footer-brand{ max-width: 340px; }
+  .footer-brand .brand{ margin-bottom: 1.2rem; }
+  .footer-brand .brand-name{ color: var(--linen) !important; }
+  .footer-brand p{ color: rgba(247,243,232,.6); font-size:.92rem; }
+  .footer-links{ display:flex; gap: 4rem; flex-wrap:wrap; }
+  .footer-col h4{ font-family:'IBM Plex Mono', monospace; font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color: var(--brass); margin-bottom:1.1rem; }
+  .footer-col ul{ display:flex; flex-direction:column; gap:.7rem; }
+  .footer-col a{ color: rgba(247,243,232,.72); font-size:.92rem; }
+  .footer-col a:hover{ color: var(--linen); }
+  .footer-bottom{ display:flex; justify-content:space-between; align-items:center; padding-top: var(--space-3); flex-wrap:wrap; gap:1rem; }
+  .footer-bottom p{ color: rgba(247,243,232,.45); font-size:.82rem; }
+
+  /* reduced motion */
+  .no-motion .reveal, .no-motion .reveal-stagger > *{ opacity:1 !important; transform:none !important; transition:none !important; }
+  .no-motion *{ scroll-behavior:auto !important; }
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Aller au contenu principal</a>
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a href="#accueil" class="brand">
+      <img src="https://static.wixstatic.com/media/c8c6c4_f9376931922d46909ff87598ae5fb599~mv2.png/v1/fill/w_400,h_140,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/logo.png" alt="Paysages Intemporels" width="130" height="45" decoding="async">
+      <span class="brand-name">Paysages Intemporels</span>
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <a href="#accueil">Accueil</a>
+      <a href="#architecte">Architecte paysagiste</a>
+      <a href="#services">Entrepreneur de jardin</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <a class="header-phone" href="tel:+32491364694">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +32 491 36 46 94
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mainNav"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="section-hero" id="accueil">
+    <div class="hero-media">
+      <img id="heroImg" src="https://static.wixstatic.com/media/c8c6c4_f792dd06d88c47e4ac9c7a670d4986d9~mv2.jpg/v1/fill/w_1920,h_1200,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/hero.jpg" alt="Jardin aménagé par Paysages Intemporels" decoding="async">
+    </div>
+    <canvas id="leafCanvas"></canvas>
+    <div class="hero-blueprint" aria-hidden="true">
+      <svg viewBox="0 0 600 560" fill="none">
+        <path class="bp-line" id="bpLineA" d="M40,420 C120,470 200,500 280,470 C360,440 380,360 340,300 C300,240 210,230 170,270 C130,310 150,380 210,400 C260,416 300,380 290,340" />
+        <path class="bp-line" id="bpLineB" d="M60,470 C160,540 300,540 380,470 C460,400 460,290 390,220 C320,150 210,150 150,210 C90,270 100,360 170,390" />
+        <path class="bp-line-accent" id="bpLineC" d="M300,60 C360,90 400,150 380,210 C360,270 300,300 250,280" />
+        <g id="bpLeaves">
+          <path class="bp-leaf" d="M280,470 c10,-14 28,-14 34,0 c-10,10 -24,10 -34,0Z"/>
+          <path class="bp-leaf" d="M170,270 c8,-12 22,-12 28,0 c-8,9 -20,9 -28,0Z"/>
+          <path class="bp-leaf" d="M390,220 c9,-13 24,-13 31,0 c-9,10 -22,10 -31,0Z"/>
+          <path class="bp-leaf" d="M250,280 c7,-10 19,-10 25,0 c-7,8 -18,8 -25,0Z"/>
+        </g>
+        <circle class="bp-dot" cx="300" cy="60" r="2.5"/>
+        <circle class="bp-dot" cx="40" cy="420" r="2.5"/>
+        <text class="bp-label" x="308" y="56">ÉCH. 1&#8202;:&#8202;100</text>
+        <text class="bp-label" x="12" y="440">PLAN N°01 — PLANTATION</text>
+      </svg>
+    </div>
+
+    <div class="hero-content container">
+      <span class="eyebrow eyebrow--dark">Architecte paysagiste &amp; entrepreneur de jardin — Brabant wallon</span>
+      <h1 class="hero-title">Le nouvel<br>expert de <em>votre jardin.</em></h1>
+      <p class="hero-sub">De la prise de contact au dernier coup de sécateur, nous imaginons, dessinons et façonnons des extérieurs qui traversent les saisons sans jamais se démoder.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn-primary">Demander un devis
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#galerie" class="btn btn-ghost-light">Voir nos réalisations</a>
+      </div>
+    </div>
+
+    <div class="hero-scroll-cue"><span class="line"></span>FAIRE&nbsp;DÉFILER</div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="section-about" id="apropos">
+    <div class="container">
+      <div class="about-grid">
+        <div class="reveal">
+          <span class="eyebrow eyebrow--light">Qui sommes-nous</span>
+          <h2 class="about-heading">Une seule équipe, du croquis à la dernière pierre posée.</h2>
+          <div class="about-text">
+            <p>Paysages Intemporels SRL conçoit et réalise des espaces verts privés dans les environs du Brabant wallon. Chaque projet suit le même chemin&nbsp;: une prise de contact, l'élaboration de plans sur mesure, puis la réalisation complète du chantier.</p>
+            <p>Égouttage, pavage, dallage, murs de soutènement, escaliers, bassins, piscines, abris de jardin, car-ports, terrasses en bois, pelouses, plantations, abattage, gros entretien&nbsp;: nos activités couvrent l'ensemble de l'aménagement extérieur.</p>
+          </div>
+          <div class="about-tags">
+            <span class="pill">Pavage &amp; dallage</span>
+            <span class="pill">Bassins &amp; piscines</span>
+            <span class="pill">Murs de soutènement</span>
+            <span class="pill">Terrasses bois</span>
+            <span class="pill">Plantations</span>
+            <span class="pill">Abris &amp; car-ports</span>
+          </div>
+        </div>
+        <div class="stat-rail reveal">
+          <div class="stat-item">
+            <span class="stat-num">50 km</span>
+            <span class="stat-label">Zone d'intervention autour de Wavre, Tubize, Rebecq et Jodoigne</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">15 km</span>
+            <span class="stat-label">Rayon dans lequel le devis est offert, autour d'Incourt</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">4 étapes</span>
+            <span class="stat-label">Devis, avant-projet, projet, réalisation — un seul interlocuteur</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="contour-divider"><svg viewBox="0 0 220 26"><path d="M2,14 C40,2 60,26 100,14 C140,2 160,26 218,12"/></svg></div>
+
+  <!-- ============ DISCIPLINES ============ -->
+  <section class="section-disciplines">
+    <div class="container">
+      <div class="disciplines-head reveal">
+        <span class="eyebrow eyebrow--dark">Deux métiers, un même geste</span>
+        <h2>Concevoir le plan, réaliser le jardin.</h2>
+      </div>
+      <div class="disciplines-grid">
+        <article class="discipline-card reveal" id="architecte">
+          <div class="discipline-card-inner" data-tilt>
+            <div class="discipline-media">
+              <img src="https://static.wixstatic.com/media/c8c6c4_81704aacdfbe4718bf458e7c5dcf7585~mv2.jpg/v1/fill/w_900,h_675,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/plans.jpg" alt="Plans techniques d'architecte paysagiste" loading="lazy" decoding="async">
+            </div>
+            <div class="discipline-body">
+              <span class="eyebrow eyebrow--dark">Concevoir</span>
+              <h3>Architecte paysagiste</h3>
+              <p>Relevés altimétriques et planimétriques, plans de base, plans de conception, plans de plantation, plans techniques&nbsp;: nous posons chaque intention sur papier avant qu'elle ne prenne racine. Dossier complet ou simple plan de plantation — vous choisissez le niveau de précision dont votre projet a besoin.</p>
+              <a href="#processus" class="discipline-link">Découvrir la démarche
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+        <article class="discipline-card reveal">
+          <div class="discipline-card-inner" data-tilt>
+            <div class="discipline-media">
+              <img src="https://static.wixstatic.com/media/c8c6c4_89cf762adda54a6687c519ce4d631c00~mv2.jpg/v1/fill/w_900,h_675,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/pavage.jpg" alt="Réalisation d'aménagement extérieur" loading="lazy" decoding="async">
+            </div>
+            <div class="discipline-body">
+              <span class="eyebrow eyebrow--dark">Réaliser</span>
+              <h3>Entrepreneur de jardin</h3>
+              <p>Du simple bassin à koï à la piscine de nage, nous mettons en œuvre chaque aménagement en harmonisant matières minérales et végétales. Chaque matériau est choisi et intégré pour dialoguer avec l'existant.</p>
+              <a href="#services" class="discipline-link">Voir nos services
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROCESS ============ -->
+  <section class="section-process" id="processus">
+    <div class="container">
+      <div class="process-head reveal">
+        <span class="eyebrow eyebrow--light">Comment nous travaillons</span>
+        <h2>De la première esquisse à la dernière plantation.</h2>
+      </div>
+      <div class="process-track" id="processTrack">
+        <div class="process-step">
+          <div class="process-media"><img src="https://static.wixstatic.com/media/c8c6c4_1eb2033037cb4a4cac7d058bb0761a42~mv2.jpg/v1/fill/w_700,h_525,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/devis.jpg" alt="Établissement du devis" loading="lazy" decoding="async"></div>
+          <span class="process-num">01</span>
+          <h3>Devis</h3>
+          <p>Nous élaborons ensemble un devis sur base de votre terrain, de vos attentes et de vos envies.</p>
+          <p class="process-note">Gratuit &lt; 15 km d'Incourt · 25&nbsp;€ HTVA de 15 à 40 km · 50&nbsp;€ HTVA au-delà</p>
+        </div>
+        <div class="process-step">
+          <div class="process-media"><img src="https://static.wixstatic.com/media/c8c6c4_85eeed6e3b774f88b57d1ef227221d1e~mv2.jpg/v1/fill/w_700,h_525,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/avant-projet.jpg" alt="Esquisse d'avant-projet" loading="lazy" decoding="async"></div>
+          <span class="process-num">02</span>
+          <h3>Avant-projet</h3>
+          <p>Une première esquisse pose les grandes lignes du projet et sert de base de discussion pour affiner vos goûts.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-media"><img src="https://static.wixstatic.com/media/c8c6c4_81704aacdfbe4718bf458e7c5dcf7585~mv2.jpg/v1/fill/w_700,h_525,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/projet.jpg" alt="Plans détaillés du projet" loading="lazy" decoding="async"></div>
+          <span class="process-num">03</span>
+          <h3>Projet</h3>
+          <p>Relevé du terrain, plan de base, plan de conception, plans techniques et, si vous le souhaitez, plan de plantation.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-media"><img src="https://static.wixstatic.com/media/c8c6c4_db97bd9cbecc47569085d77482359c9e~mv2.jpg/v1/fill/w_700,h_525,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/realisation.jpg" alt="Réalisation du chantier" loading="lazy" decoding="async"></div>
+          <span class="process-num">04</span>
+          <h3>Réalisation</h3>
+          <p>Nos équipes réalisent le chantier avec la même exigence que s'il s'agissait de leur propre jardin — du plus classique au jardin zen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section class="section-services" id="services">
+    <div class="container">
+      <div class="services-head reveal">
+        <span class="eyebrow eyebrow--light">Entrepreneur de jardin</span>
+        <h2>Nos services.</h2>
+      </div>
+      <div class="services-grid reveal-stagger">
+        <article class="service-card">
+          <div class="service-media">
+            <img src="https://static.wixstatic.com/media/c8c6c4_89cf762adda54a6687c519ce4d631c00~mv2.jpg/v1/fill/w_800,h_550,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/creations.jpg" alt="Créations et aménagements de jardin" loading="lazy" decoding="async">
+            <span class="service-icon"><svg viewBox="0 0 24 24"><path d="M4 20h16M6 20V10l6-5 6 5v10M9 20v-6h6v6"/></svg></span>
+          </div>
+          <div class="service-body">
+            <h3>Créations &amp; aménagements</h3>
+            <p>Du bassin à koï à la piscine traditionnelle, en passant par parkings et terrasses&nbsp;: chaque aménagement extérieur est pensé pour s'intégrer avec harmonie.</p>
+          </div>
+        </article>
+        <article class="service-card">
+          <div class="service-media">
+            <img src="https://static.wixstatic.com/media/c8c6c4_54f046b696cf43be93077d98215b9cd2~mv2.jpg/v1/fill/w_800,h_550,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/entretien.jpg" alt="Entretien de jardin" loading="lazy" decoding="async">
+            <span class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 3c-3 3-3 9 0 12 3-3 3-9 0-12ZM4 21c4-6 8-6 8-12M20 21c-4-6-8-6-8-12"/></svg></span>
+          </div>
+          <div class="service-body">
+            <h3>Entretiens</h3>
+            <p>Remise en état d'entrée ou de sortie de saison, pour un jardin géré ensuite plus simplement. Nous ne proposons pas d'entretien mensuel.</p>
+          </div>
+        </article>
+        <article class="service-card">
+          <div class="service-media">
+            <img src="https://static.wixstatic.com/media/c8c6c4_7e55b97983f14b849de795fe683c8c96~mv2.jpg/v1/fill/w_800,h_550,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/abattage.jpg" alt="Abattage et élagage" loading="lazy" decoding="async">
+            <span class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 2v8m0 0-4 4m4-4 4 4M6 22c0-4 2.5-7 6-8 3.5 1 6 4 6 8"/></svg></span>
+          </div>
+          <div class="service-body">
+            <h3>Abattages &amp; élagages</h3>
+            <p>Taille douce dans le respect de l'arbre, débitage sécurisé après tempête, et rognage de souche pour permettre une nouvelle plantation.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STYLES STRIP ============ -->
+  <section class="section-styles">
+    <div class="container styles-inner reveal">
+      <h3>Un style pour chaque jardin — classique ou contemporain.</h3>
+      <div class="styles-tags">
+        <span class="pill">À la française</span>
+        <span class="pill">À l'anglaise</span>
+        <span class="pill">Classique</span>
+        <span class="pill">Moderne</span>
+        <span class="pill">Zen</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GALLERY ============ -->
+  <section class="section-gallery" id="galerie">
+    <div class="container">
+      <div class="gallery-head reveal">
+        <div>
+          <span class="eyebrow eyebrow--light">Nos réalisations</span>
+          <h2>Quelques jardins que nous avons fait naître.</h2>
+        </div>
+        <a href="https://www.facebook.com/paysagesintemporels" target="_blank" rel="noopener" class="btn btn-ghost-dark">Plus de photos sur Facebook</a>
+      </div>
+      <div class="gallery-grid reveal-stagger" id="galleryGrid">
+        <div class="gallery-item" data-full="https://static.wixstatic.com/media/4b939f_f2ed253abe944833937364b7475a7028~mv2.jpg/v1/fill/w_1400,h_1400,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/g1.jpg">
+          <img src="https://static.wixstatic.com/media/4b939f_f2ed253abe944833937364b7475a7028~mv2.jpg/v1/fill/w_700,h_700,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/g1.jpg" alt="Aménagement extérieur complet" loading="lazy" decoding="async">
+          <span class="gallery-caption">Aménagement complet</span>
+        </div>
+        <div class="gallery-item" data-full="https://static.wixstatic.com/media/4b939f_173c4a01c0a142fbb0309596593225e7~mv2.jpg/v1/fill/w_1400,h_1400,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/g2.jpg">
+          <img src="https://static.wixstatic.com/media/4b939f_173c4a01c0a142fbb0309596593225e7~mv2.jpg/v1/fill/w_700,h_700,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/g2.jpg" alt="Entretien saisonnier de jardin" loading="lazy" decoding="async">
+          <span class="gallery-caption">Entretien saisonnier</span>
+        </div>
+        <div class="gallery-item" data-full="https://static.wixstatic.com/media/4b939f_04b2a658ed19479a9a136fd2d4703b19~mv2.jpg/v1/fill/w_1400,h_1400,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/g3.jpg">
+          <img src="https://static.wixstatic.com/media/4b939f_04b2a658ed19479a9a136fd2d4703b19~mv2.jpg/v1/fill/w_700,h_700,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/g3.jpg" alt="Création de jardin sur mesure" loading="lazy" decoding="async">
+          <span class="gallery-caption">Création sur mesure</span>
+        </div>
+        <div class="gallery-item" data-full="https://static.wixstatic.com/media/4b939f_6329ad3d533f4f3795fa92e716d1b791~mv2.jpg/v1/fill/w_1400,h_1400,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/g4.jpg">
+          <img src="https://static.wixstatic.com/media/4b939f_6329ad3d533f4f3795fa92e716d1b791~mv2.jpg/v1/fill/w_700,h_700,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/g4.jpg" alt="Taille et structure végétale" loading="lazy" decoding="async">
+          <span class="gallery-caption">Taille &amp; structure</span>
+        </div>
+        <div class="gallery-item" data-full="https://static.wixstatic.com/media/4b939f_c933b2b093424230bcbee2ffa17ddaa9~mv2.jpg/v1/fill/w_1400,h_1400,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/g5.jpg">
+          <img src="https://static.wixstatic.com/media/4b939f_c933b2b093424230bcbee2ffa17ddaa9~mv2.jpg/v1/fill/w_700,h_700,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/g5.jpg" alt="Entretien de jardin" loading="lazy" decoding="async">
+          <span class="gallery-caption">Entretien de jardin</span>
+        </div>
+        <div class="gallery-item" data-full="https://static.wixstatic.com/media/4b939f_b8dd18147f004dad9b74c57058407a06~mv2.jpg/v1/fill/w_1400,h_1400,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/g6.jpg">
+          <img src="https://static.wixstatic.com/media/4b939f_b8dd18147f004dad9b74c57058407a06~mv2.jpg/v1/fill/w_700,h_700,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/g6.jpg" alt="Chantier terminé" loading="lazy" decoding="async">
+          <span class="gallery-caption">Chantier terminé</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="section-contact" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <span class="eyebrow eyebrow--dark">Parlons de votre projet</span>
+          <h2>Contactez-nous.</h2>
+          <p>Une question, un devis, une envie encore floue&nbsp;? Écrivez-nous ou appelez directement — nous répondons avec plaisir.</p>
+
+          <div class="contact-detail">
+            <svg class="ico" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <div><strong>Téléphone</strong><a href="tel:+32491364694">+32 491 36 46 94</a></div>
+          </div>
+          <div class="contact-detail">
+            <svg class="ico" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="m4 6 8 7 8-7"/></svg>
+            <div><strong>Email</strong><a href="mailto:laurentleroy777@gmail.com">laurentleroy777@gmail.com</a></div>
+          </div>
+          <div class="contact-detail">
+            <svg class="ico" viewBox="0 0 24 24"><path d="M12 21s-7-6.5-7-11.5A7 7 0 0 1 19 9.5C19 14.5 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.3"/></svg>
+            <div><strong>Zone d'intervention</strong><span>Wavre · Tubize · Rebecq · Jodoigne (rayon 50 km)</span></div>
+          </div>
+
+          <div class="contact-social">
+            <a href="https://www.facebook.com/paysagesintemporels" target="_blank" rel="noopener" aria-label="Facebook de Paysages Intemporels">
+              <svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12Z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!--
+          ENVOI DIRECT DES MESSAGES PAR E-MAIL (Web3Forms) :
+          1) Aller sur https://web3forms.com
+          2) Entrer l'adresse laurentleroy777@gmail.com puis cliquer sur "Create Access Key"
+          3) Une clé arrive instantanément par e-mail (aucun compte à créer)
+          4) Remplacer ci-dessous COLLEZ_ICI_VOTRE_CLE_WEB3FORMS par cette clé
+          Tant que la clé n'est pas remplacée, le formulaire bascule automatiquement
+          sur l'ouverture de la messagerie (mailto) pour ne perdre aucun message.
+        -->
+        <form class="contact-form reveal" id="contactForm">
+          <input type="hidden" name="access_key" value="COLLEZ_ICI_VOTRE_CLE_WEB3FORMS">
+          <input type="hidden" name="subject" value="Nouvelle demande — Paysages Intemporels">
+          <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off">
+          <div class="form-row">
+            <div class="field">
+              <label for="fname">Prénom</label>
+              <input type="text" id="fname" name="fname" required>
+            </div>
+            <div class="field">
+              <label for="lname">Nom de famille</label>
+              <input type="text" id="lname" name="lname" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="femail">E-mail</label>
+              <input type="email" id="femail" name="femail" required>
+            </div>
+            <div class="field">
+              <label for="fphone">Téléphone</label>
+              <input type="tel" id="fphone" name="fphone">
+            </div>
+          </div>
+          <div class="field">
+            <label for="fsubject">Objet du message</label>
+            <select id="fsubject" name="fsubject">
+              <option>Demande de devis</option>
+              <option>Création &amp; aménagement de jardin</option>
+              <option>Entretien</option>
+              <option>Abattage &amp; élagage</option>
+              <option>Autre question</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="fmessage">Message</label>
+            <textarea id="fmessage" name="fmessage" placeholder="Décrivez-nous votre projet..." required></textarea>
+          </div>
+          <p class="form-note">Devis gratuit &lt; 15 km d'Incourt · 25&nbsp;€ HTVA de 15 à 40 km · 50&nbsp;€ HTVA au-delà (déduit du projet si vous travaillez avec nous).</p>
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Envoyer
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+          <div class="form-confirm" id="formConfirm"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#accueil" class="brand">
+          <img src="https://static.wixstatic.com/media/c8c6c4_f9376931922d46909ff87598ae5fb599~mv2.png/v1/fill/w_400,h_140,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/logo.png" alt="Paysages Intemporels" width="120" height="42" loading="lazy" decoding="async">
+          <span class="brand-name">Paysages Intemporels</span>
+        </a>
+        <p>Votre entrepreneur de jardin et architecte paysagiste dans le Brabant wallon.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#architecte">Architecte paysagiste</a></li>
+            <li><a href="#services">Entrepreneur de jardin</a></li>
+            <li><a href="#galerie">Galerie</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Coordonnées</h4>
+          <ul>
+            <li><a href="tel:+32491364694">+32 491 36 46 94</a></li>
+            <li><a href="mailto:laurentleroy777@gmail.com">laurentleroy777@gmail.com</a></li>
+            <li><a href="https://www.facebook.com/paysagesintemporels" target="_blank" rel="noopener">Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> Paysages Intemporels SRL</p>
+      <p><a href="https://www.entrepreneur-jardin.be/politique-de-confidentialit%C3%A9" target="_blank" rel="noopener" style="color:rgba(247,243,232,.6);">Politique de confidentialité</a></p>
+    </div>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Fermer">&times;</button>
+  <img src="" alt="" id="lightboxImg">
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduceMotion){ document.documentElement.classList.add('no-motion'); }
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ---------- header scroll state ---------- */
+  var header = document.getElementById('siteHeader');
+  var progress = document.getElementById('scrollProgress');
+  function onScroll(){
+    var y = window.scrollY || window.pageYOffset;
+    header.classList.toggle('is-scrolled', y > 60);
+    var docH = document.documentElement.scrollHeight - window.innerHeight;
+    var pct = docH > 0 ? (y / docH) * 100 : 0;
+    progress.style.width = pct + '%';
+  }
+  document.addEventListener('scroll', onScroll, { passive:true });
+  onScroll();
+
+  /* ---------- mobile nav ---------- */
+  var navToggle = document.getElementById('navToggle');
+  var mainNav = document.getElementById('mainNav');
+  navToggle.addEventListener('click', function(){
+    var open = mainNav.classList.toggle('is-open');
+    navToggle.classList.toggle('is-open', open);
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  mainNav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      mainNav.classList.remove('is-open');
+      navToggle.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded','false');
+    });
+  });
+
+  /* ---------- scroll reveal ---------- */
+  var revealEls = document.querySelectorAll('.reveal, .reveal-stagger, #processTrack');
+  if('IntersectionObserver' in window && !reduceMotion){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold:.18, rootMargin:'0px 0px -60px 0px' });
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('is-visible'); });
+  }
+
+  /* ---------- hero blueprint self-draw ---------- */
+  ['bpLineA','bpLineB','bpLineC'].forEach(function(id, i){
+    var path = document.getElementById(id);
+    if(!path) return;
+    if(reduceMotion){ return; }
+    var len = path.getTotalLength();
+    path.style.strokeDasharray = len;
+    path.style.strokeDashoffset = len;
+    path.getBoundingClientRect();
+    path.style.transition = 'stroke-dashoffset ' + (2.2 + i*.4) + 's cubic-bezier(.22,1,.36,1) ' + (.3 + i*.3) + 's';
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){ path.style.strokeDashoffset = '0'; });
+    });
+  });
+  var leaves = document.getElementById('bpLeaves');
+  if(leaves && !reduceMotion){
+    leaves.style.opacity = '0';
+    leaves.style.transition = 'opacity 1s ease 2.4s';
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){ leaves.style.opacity = '1'; }); });
+  }
+
+  /* ---------- hero parallax ---------- */
+  var heroImg = document.getElementById('heroImg');
+  if(heroImg && !reduceMotion){
+    var ticking = false;
+    window.addEventListener('scroll', function(){
+      if(!ticking){
+        requestAnimationFrame(function(){
+          var y = window.scrollY || window.pageYOffset;
+          if(y < window.innerHeight * 1.2){
+            heroImg.style.transform = 'scale(1.02) translateY(' + (y*0.14) + 'px)';
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive:true });
+  }
+
+  /* ---------- 3D tilt cards ---------- */
+  if(!reduceMotion && window.matchMedia('(hover: hover)').matches){
+    document.querySelectorAll('[data-tilt]').forEach(function(card){
+      var rect;
+      card.addEventListener('mouseenter', function(){ rect = card.getBoundingClientRect(); });
+      card.addEventListener('mousemove', function(e){
+        if(!rect) rect = card.getBoundingClientRect();
+        var px = (e.clientX - rect.left) / rect.width;
+        var py = (e.clientY - rect.top) / rect.height;
+        var rx = (py - .5) * -8;
+        var ry = (px - .5) * 10;
+        card.style.transform = 'perspective(1400px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg) translateY(-4px)';
+      });
+      card.addEventListener('mouseleave', function(){
+        card.style.transform = 'perspective(1400px) rotateX(0) rotateY(0) translateY(0)';
+      });
+    });
+  }
+
+  /* ---------- ambient leaf canvas ---------- */
+  var canvas = document.getElementById('leafCanvas');
+  if(canvas && !reduceMotion){
+    var ctx = canvas.getContext('2d');
+    var hero = canvas.closest('.section-hero');
+    var particles = [];
+    var W, H;
+
+    function resize(){
+      W = hero.offsetWidth; H = hero.offsetHeight;
+      canvas.width = W * devicePixelRatio; canvas.height = H * devicePixelRatio;
+      canvas.style.width = W+'px'; canvas.style.height = H+'px';
+      ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
+    }
+    function makeParticle(){
+      return {
+        x: Math.random()*W,
+        y: Math.random()*H - H,
+        r: 4 + Math.random()*5,
+        speed: .25 + Math.random()*.4,
+        drift: Math.random()*1.6 - .8,
+        sway: Math.random()*Math.PI*2,
+        swaySpeed: .01 + Math.random()*.015,
+        rot: Math.random()*Math.PI*2,
+        rotSpeed: (Math.random()-.5)*.01,
+        opacity: .18 + Math.random()*.22
+      };
+    }
+    function initParticles(){
+      particles = [];
+      var count = W < 700 ? 7 : 13;
+      for(var i=0;i<count;i++){ particles.push(makeParticle()); }
+    }
+    function drawLeaf(p){
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot);
+      ctx.globalAlpha = p.opacity;
+      ctx.fillStyle = '#C79A52';
+      ctx.beginPath();
+      ctx.moveTo(0, -p.r);
+      ctx.quadraticCurveTo(p.r*0.9, 0, 0, p.r);
+      ctx.quadraticCurveTo(-p.r*0.9, 0, 0, -p.r);
+      ctx.fill();
+      ctx.restore();
+    }
+    function tick(){
+      ctx.clearRect(0,0,W,H);
+      particles.forEach(function(p){
+        p.y += p.speed;
+        p.sway += p.swaySpeed;
+        p.x += p.drift*0.3 + Math.sin(p.sway)*0.6;
+        p.rot += p.rotSpeed;
+        if(p.y > H + 20){ p.y = -20; p.x = Math.random()*W; }
+        drawLeaf(p);
+      });
+      requestAnimationFrame(tick);
+    }
+    resize(); initParticles();
+    window.addEventListener('resize', function(){ resize(); initParticles(); });
+    requestAnimationFrame(tick);
+  }
+
+  /* ---------- gallery lightbox ---------- */
+  var lightbox = document.getElementById('lightbox');
+  var lightboxImg = document.getElementById('lightboxImg');
+  document.querySelectorAll('.gallery-item').forEach(function(item){
+    item.addEventListener('click', function(){
+      var full = item.getAttribute('data-full');
+      var alt = item.querySelector('img').alt;
+      lightboxImg.src = full; lightboxImg.alt = alt;
+      lightbox.classList.add('is-open');
+    });
+  });
+  function closeLightbox(){ lightbox.classList.remove('is-open'); lightboxImg.src=''; }
+  document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', function(e){ if(e.target === lightbox){ closeLightbox(); } });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ closeLightbox(); } });
+
+  /* ---------- contact form -> envoi direct par e-mail (Web3Forms) ---------- */
+  var form = document.getElementById('contactForm');
+  var confirmBox = document.getElementById('formConfirm');
+  var WEB3FORMS_KEY_PLACEHOLDER = 'COLLEZ_ICI_VOTRE_CLE_WEB3FORMS';
+
+  function buildMailto(fname, lname, email, phone, subject, message){
+    var body = 'Nom : ' + fname + ' ' + lname + '\n' +
+               'E-mail : ' + email + '\n' +
+               'Téléphone : ' + (phone || 'Non renseigné') + '\n\n' +
+               message;
+    return 'mailto:laurentleroy777@gmail.com' +
+           '?subject=' + encodeURIComponent('[Site web] ' + subject) +
+           '&body=' + encodeURIComponent(body);
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var fname = document.getElementById('fname').value.trim();
+    var lname = document.getElementById('lname').value.trim();
+    var email = document.getElementById('femail').value.trim();
+    var phone = document.getElementById('fphone').value.trim();
+    var subject = document.getElementById('fsubject').value;
+    var message = document.getElementById('fmessage').value.trim();
+    var accessKey = form.querySelector('input[name="access_key"]').value.trim();
+    var submitBtn = form.querySelector('button[type="submit"]');
+
+    function showConfirm(text){
+      confirmBox.textContent = text;
+      confirmBox.classList.add('is-shown');
+    }
+    function fallbackToMailto(text){
+      window.location.href = buildMailto(fname, lname, email, phone, subject, message);
+      showConfirm(text);
+    }
+
+    /* la clé Web3Forms n'a pas encore été configurée : on ouvre directement la messagerie */
+    if(!accessKey || accessKey === WEB3FORMS_KEY_PLACEHOLDER){
+      fallbackToMailto("Votre messagerie va s'ouvrir avec le message prérempli — il ne restera qu'à l'envoyer.");
+      return;
+    }
+
+    var formData = new FormData(form);
+    formData.set('from_name', fname + ' ' + lname);
+    formData.set('replyto', email);
+
+    submitBtn.disabled = true;
+    submitBtn.style.opacity = '.65';
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: formData
+    })
+    .then(function(res){ return res.json(); })
+    .then(function(data){
+      submitBtn.disabled = false; submitBtn.style.opacity = '';
+      if(data && data.success){
+        form.reset();
+        showConfirm('Merci ! Votre message a bien été envoyé, nous revenons vers vous rapidement.');
+      } else {
+        fallbackToMailto("L'envoi automatique n'a pas abouti — votre messagerie va s'ouvrir avec le message prérempli.");
+      }
+    })
+    .catch(function(){
+      submitBtn.disabled = false; submitBtn.style.opacity = '';
+      fallbackToMailto("L'envoi automatique n'a pas abouti — votre messagerie va s'ouvrir avec le message prérempli.");
+    });
+  });
+
+  /* ---------- smooth anchor offset for fixed header ---------- */
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var id = a.getAttribute('href');
+      if(id.length < 2) return;
+      var target = document.querySelector(id);
+      if(!target) return;
+      e.preventDefault();
+      var y = target.getBoundingClientRect().top + window.pageYOffset - 84;
+      window.scrollTo({ top:y, behavior: reduceMotion ? 'auto' : 'smooth' });
+    });
+  });
+})();
+</script>
+</body>
+</html>
