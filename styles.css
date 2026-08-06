@@ -83,6 +83,12 @@ h1,h2,h3{ font-family: var(--font-display); color: var(--heading); margin: 0; li
 p { margin: 0; }
 .hl-amber{ font-style: italic; color: var(--amber); }
 
+/* Empêche les tracks de grille de s'élargir au-delà de l'espace disponible
+   à cause du min-content par défaut des enfants (fix débordement mobile) */
+.process-grid > *, .services-grid > *, .compare-grid > *, .pricing-grid > *,
+.gallery-grid > *, .materiel-grid > *, .zone-layout > *, .form-two > *,
+.custom-quote-card > *{ min-width: 0; }
+
 .container{ max-width: var(--container); margin: 0 auto; padding: 0 24px; }
 .section{ padding: 96px 0; background: var(--bg); transition: background .3s ease; }
 .section--alt{ background: var(--bg-alt); }
@@ -305,8 +311,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .hero-shot.is-active{ opacity:1; }
 .hero-shot img{ width:100%; height:100%; object-fit:cover; display:block; }
 .hero-shots-caption{
-  position:absolute; left:18px; bottom:16px; z-index:2;
+  position:absolute; left:18px; right:58px; bottom:16px; z-index:2;
   color: rgba(255,255,255,0.9); font-family: var(--font-mono); font-size:0.8rem;
+  overflow:hidden; white-space:nowrap; text-overflow:ellipsis;
 }
 .hero-shots-count{
   position:absolute; right:18px; bottom:16px; z-index:2;
@@ -656,7 +663,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .elig-foot b{ color: var(--spark); }
 
 /* ===================== CONTACT ===================== */
-.contact-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items:start; }
+.contact-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items:start; min-width: 0; }
+.contact-grid > *{ min-width: 0; }
 .contact-info h2{ font-size: clamp(1.7rem, 3.2vw, 2.4rem); }
 .contact-info .lead{ margin-top:16px; color: var(--text-muted); font-size:1.05rem; max-width: 420px; }
 .contact-direct{ margin-top: 36px; display:flex; flex-direction:column; gap:16px; }
@@ -771,4 +779,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .zone-chips{ gap: 8px; }
   .zone-chips li{ padding: 7px 12px; font-size:0.74rem; }
   .zone-note{ font-size:0.82rem; }
+}
+@media (max-width: 400px){
+  /* Petits écrans (ex. iPhone SE) : header trop étroit pour logo + tous les
+     boutons — le bouton "Devis gratuit" reste disponible en 1er dans le
+     panneau mobile, pas besoin de le dupliquer ici. */
+  .header-actions .btn-primary{ display:none; }
+  .logo{ font-size: 1.05rem; }
+  .header-actions{ gap: 8px; }
 }
