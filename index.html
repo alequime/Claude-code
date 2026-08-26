@@ -248,11 +248,15 @@
 
   /* ---------- Hero ---------- */
   .hero{
-    min-height:100vh;
+    position:relative;
+    height:260vh;
+    color:#fff;
+  }
+  .hero-pin{
+    position:sticky; top:0;
+    height:100vh;
     display:flex; align-items:center;
     padding:150px 0 100px;
-    position:relative;
-    color:#fff;
     overflow:hidden;
   }
   .hero-media{ position:absolute; inset:0; z-index:0; background:var(--dark); }
@@ -273,7 +277,8 @@
       repeating-linear-gradient(90deg, rgba(255,255,255,0.5) 0 1px, transparent 1px 120px),
       repeating-linear-gradient(0deg, rgba(255,255,255,0.5) 0 1px, transparent 1px 120px);
   }
-  .hero-content{ max-width:620px; will-change:opacity; }
+  .hero-content{ max-width:620px; }
+  .hero-phrase{ will-change:transform, opacity; }
   .hero-content h1{
     font-size:clamp(2.3rem, 4.6vw, 3.6rem);
     font-weight:700;
@@ -687,22 +692,6 @@
   :root[data-theme="light"] .mobile-nav a{ color:var(--ink); }
   :root[data-theme="light"] .mobile-close{ background:rgba(20,32,43,0.06); border-color:rgba(20,32,43,0.15); color:var(--ink); }
 
-  :root[data-theme="light"] .hero{
-    background:
-      radial-gradient(circle at 85% 15%, rgba(243,112,28,0.14), transparent 45%),
-      radial-gradient(circle at 10% 90%, rgba(243,112,28,0.08), transparent 40%),
-      linear-gradient(160deg, #faf8f4 0%, #f0ebe1 55%, #e6dfd0 100%);
-    color:var(--ink);
-  }
-  :root[data-theme="light"] .hero-grid-lines{
-    background-image:
-      repeating-linear-gradient(90deg, rgba(20,32,43,0.35) 0 1px, transparent 1px 120px),
-      repeating-linear-gradient(0deg, rgba(20,32,43,0.35) 0 1px, transparent 1px 120px);
-  }
-  :root[data-theme="light"] .hero-content p.lead{ color:rgba(20,32,43,0.7); }
-  :root[data-theme="light"] .hero-stats div span{ color:rgba(20,32,43,0.55); }
-  :root[data-theme="light"] .video-badge{ color:rgba(20,32,43,0.8); }
-  :root[data-theme="light"] .scroll-cue{ color:rgba(20,32,43,0.45); }
 
   :root[data-theme="light"] .trust-strip{ background:#efe9de; }
   :root[data-theme="light"] .trust-item{ color:rgba(20,32,43,0.75); }
@@ -745,7 +734,7 @@
     .services-grid, .ba-grid{ grid-template-columns:1fr; }
     .process-grid{ grid-template-columns:1fr; gap:28px; }
     .gallery-grid{ grid-template-columns:repeat(2,1fr); }
-    .hero{ padding:130px 0 90px; }
+    .hero-pin{ padding:130px 0 90px; }
     .hero-stats{ gap:22px; }
     .review-card{ flex-basis:280px; }
     .trust-strip .container{ justify-content:flex-start; }
@@ -830,32 +819,40 @@
 <main id="main">
   <!-- ===================== HERO ===================== -->
   <section class="hero" id="accueil">
-    <div class="hero-media" aria-hidden="true">
-      <video id="heroVideo" class="hero-video" src="assets/video/hero-transformation.mp4" muted playsinline preload="auto"></video>
-    </div>
-    <div class="hero-grid-lines" aria-hidden="true"></div>
-    <div class="container">
-      <div class="hero-content" id="heroContent">
-        <h1>L'excellence en menuiserie extérieure, <span class="accent">depuis 1992</span></h1>
-        <p class="lead">Châssis PVC, aluminium & bois, portes, volets et vérandas installés avec précision dans tout le Brabant wallon par des artisans passionnés.</p>
-        <div class="hero-cta">
-          <a href="#contact" class="btn btn-primary">Demander un devis gratuit</a>
-          <a href="#realisations" class="btn btn-glass">Voir nos réalisations</a>
-        </div>
-        <div class="hero-stats">
-          <div><strong>30+</strong><span>Ans d'expérience</span></div>
-          <div><strong>1992</strong><span>Année de fondation</span></div>
-          <div><strong>7</strong><span>Régions desservies</span></div>
-        </div>
-        <div class="video-badge">
-          <span class="dot" aria-hidden="true"></span>
-          Faites défiler pour voir la transformation
+    <div class="hero-pin">
+      <div class="hero-media" aria-hidden="true">
+        <video id="heroVideo" class="hero-video" src="assets/video/hero-transformation.mp4" muted playsinline preload="auto"></video>
+      </div>
+      <div class="hero-grid-lines" aria-hidden="true"></div>
+      <div class="container">
+        <div class="hero-content" id="heroContent">
+          <div class="hero-phrase" data-exit-dir="left">
+            <h1>L'excellence en menuiserie extérieure, <span class="accent">depuis 1992</span></h1>
+          </div>
+          <div class="hero-phrase" data-exit-dir="right">
+            <p class="lead">Châssis PVC, aluminium & bois, portes, volets et vérandas installés avec précision dans tout le Brabant wallon par des artisans passionnés.</p>
+          </div>
+          <div class="hero-phrase" data-exit-dir="left">
+            <div class="hero-cta">
+              <a href="#contact" class="btn btn-primary">Demander un devis gratuit</a>
+              <a href="#realisations" class="btn btn-glass">Voir nos réalisations</a>
+            </div>
+            <div class="hero-stats">
+              <div><strong>30+</strong><span>Ans d'expérience</span></div>
+              <div><strong>1992</strong><span>Année de fondation</span></div>
+              <div><strong>7</strong><span>Régions desservies</span></div>
+            </div>
+            <div class="video-badge">
+              <span class="dot" aria-hidden="true"></span>
+              Faites défiler pour voir la transformation
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="scroll-cue">
-      Découvrir
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v16M6 14l6 6 6-6"/></svg>
+      <div class="scroll-cue">
+        Découvrir
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v16M6 14l6 6 6-6"/></svg>
+      </div>
     </div>
   </section>
 
@@ -1320,18 +1317,32 @@
   document.addEventListener('scroll', updateProgress);
   updateProgress();
 
-  // Hero video scroll-scrub: video progress follows how far the hero has scrolled past,
-  // and the hero text fades out over the first part of that same scroll range.
+  // Hero video scroll-scrub: the hero is a tall scroll track with a sticky pinned
+  // viewport inside, so the video plays out fully across that whole scroll distance
+  // before the pin releases and the page continues on to the next section. The
+  // hero text leaves in short phrase groups, each sliding out to a side in turn,
+  // well before the video itself finishes.
   const heroSection = document.getElementById('accueil');
   const heroVideo = document.getElementById('heroVideo');
-  const heroContent = document.getElementById('heroContent');
+  const heroPhrases = Array.from(document.querySelectorAll('.hero-phrase'));
+  const PHRASE_EXIT_SPAN = 0.55;
+  const phraseSlot = PHRASE_EXIT_SPAN / heroPhrases.length;
+  heroPhrases.forEach((el, i) => {
+    el._start = i * phraseSlot;
+    el._end = el._start + phraseSlot * 0.85;
+  });
   const scrubHeroVideo = () => {
     const heroHeight = heroSection.offsetHeight;
     const scrolled = -heroSection.getBoundingClientRect().top;
     const progress = Math.max(0, Math.min(1, scrolled / heroHeight));
     if (heroVideo.duration) heroVideo.currentTime = progress * heroVideo.duration;
-    const fade = Math.max(0, Math.min(1, scrolled / (heroHeight * 0.6)));
-    heroContent.style.opacity = String(1 - fade);
+    heroPhrases.forEach(el => {
+      const t = Math.max(0, Math.min(1, (progress - el._start) / (el._end - el._start)));
+      const dir = el.dataset.exitDir === 'right' ? 1 : -1;
+      el.style.opacity = String(1 - t);
+      el.style.transform = 'translateX(' + (dir * t * 70) + 'px)';
+      el.style.pointerEvents = t > 0.5 ? 'none' : '';
+    });
   };
   document.addEventListener('scroll', scrubHeroVideo);
   heroVideo.addEventListener('loadedmetadata', scrubHeroVideo);
