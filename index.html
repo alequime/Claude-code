@@ -1374,6 +1374,10 @@
   const heroVideo = document.getElementById('heroVideo');
   const heroPhrases = Array.from(document.querySelectorAll('.hero-phrase'));
   const PHRASE_EXIT_SPAN = 0.35;
+  // The video finishes at 78% of the scroll track, then holds on its final frame
+  // for the remaining 22% so the completed result stays on screen for a beat
+  // before the pin releases into the next section.
+  const VIDEO_END_PROGRESS = 0.78;
   const phraseSlot = PHRASE_EXIT_SPAN / heroPhrases.length;
   heroPhrases.forEach((el, i) => {
     el._start = i * phraseSlot;
@@ -1383,7 +1387,8 @@
     const heroHeight = heroSection.offsetHeight;
     const scrolled = -heroSection.getBoundingClientRect().top;
     const progress = Math.max(0, Math.min(1, scrolled / heroHeight));
-    if (heroVideo.duration) heroVideo.currentTime = progress * heroVideo.duration;
+    const videoProgress = Math.min(1, progress / VIDEO_END_PROGRESS);
+    if (heroVideo.duration) heroVideo.currentTime = videoProgress * heroVideo.duration;
     heroPhrases.forEach(el => {
       const t = Math.max(0, Math.min(1, (progress - el._start) / (el._end - el._start)));
       const dir = el.dataset.exitDir === 'right' ? 1 : -1;
