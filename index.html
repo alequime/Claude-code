@@ -425,21 +425,22 @@
     position:relative; aspect-ratio:4/5; border-radius:var(--radius-md); overflow:hidden;
     box-shadow:var(--shadow-sm); user-select:none; touch-action:none; cursor:ew-resize;
   }
+  .ba-img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
   .ba-pane{
     position:absolute; inset:0; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:10px;
     color:rgba(255,255,255,0.85); text-align:center; padding:20px;
+    background:linear-gradient(160deg,#3a4b5c,#1c2733);
   }
   .ba-pane svg{ width:34px; height:34px; opacity:0.7; }
   .ba-pane small{ font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; opacity:0.7; }
-  .ba-after{ background:linear-gradient(160deg,#3a4b5c,#1c2733); }
-  .ba-before{
-    background:linear-gradient(160deg,#5b6572,#3a424c);
-    position:absolute; inset:0; width:50%; overflow:hidden; border-right:2px solid rgba(255,255,255,0.6);
-  }
-  .ba-before .ba-pane{ width:200%; }
+  .ba-before-wrap{ position:absolute; inset:0; }
   .ba-handle{
     position:absolute; top:0; bottom:0; left:50%; width:0; transform:translateX(-50%);
     display:flex; align-items:center; justify-content:center;
+  }
+  .ba-handle::before{
+    content:""; position:absolute; top:0; bottom:0; left:0; width:2px;
+    background:rgba(255,255,255,0.6); transform:translateX(-50%);
   }
   .ba-handle-btn{
     width:42px; height:42px; border-radius:50%;
@@ -474,6 +475,7 @@
     display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.8); flex-direction:column; gap:12px;
   }
   .lightbox-frame svg{ width:44px; height:44px; opacity:0.6; }
+  .lightbox-frame img{ width:100%; height:100%; object-fit:contain; }
   .lightbox-controls{ display:flex; justify-content:space-between; align-items:center; margin-top:20px; }
   .lightbox-nav{ display:flex; gap:10px; }
   .lightbox-close, .lightbox-arrow{
@@ -495,6 +497,7 @@
   }
   .gallery-tile:hover{ transform:scale(1.04); }
   .gallery-tile svg{ width:22px; height:22px; }
+  .gallery-tile img{ width:100%; height:100%; object-fit:cover; display:block; }
   .gallery-full{ margin-top:50px; }
 
   /* ---------- Reviews ---------- */
@@ -943,26 +946,29 @@
       <div class="section-head center">
         <span class="eyebrow">Réalisations</span>
         <h2>Avant / après : glissez pour comparer</h2>
-        <p>Une sélection de nos meilleurs chantiers arrive ici prochainement — la galerie complète est déjà prête à les accueillir.</p>
+        <p>Quelques-unes de nos réalisations récentes — la galerie s'agrandit au fil des chantiers.</p>
       </div>
 
-      <!-- Featured before/after sliders — TODO: replace ba-before / ba-after backgrounds with real project photos -->
       <div class="ba-grid">
         <div class="ba-slider reveal" data-ba>
           <span class="ba-tag left">Avant</span>
           <span class="ba-tag right">Après</span>
-          <div class="ba-pane ba-after">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
-            <small>Photo à venir</small>
-          </div>
-          <div class="ba-before" style="width:50%">
-            <div class="ba-pane">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
-              <small>Photo à venir</small>
-            </div>
+          <img class="ba-img" src="assets/images/porte-apres-1.jpg" alt="Nouvelle porte d'entrée BC Châssis, après installation">
+          <div class="ba-before-wrap" style="clip-path:inset(0 50% 0 0)">
+            <img class="ba-img" src="assets/images/porte-avant-1.jpg" alt="Ancienne porte d'entrée avant remplacement">
           </div>
           <div class="ba-handle" style="left:50%"><span class="ba-handle-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 5l-5 7 5 7M16 5l5 7-5 7"/></svg></span></div>
         </div>
+        <div class="ba-slider reveal" data-ba>
+          <span class="ba-tag left">Avant</span>
+          <span class="ba-tag right">Après</span>
+          <img class="ba-img" src="assets/images/portail-apres-1.jpg" alt="Nouveau portail BC Châssis, après installation">
+          <div class="ba-before-wrap" style="clip-path:inset(0 50% 0 0)">
+            <img class="ba-img" src="assets/images/portail-avant-1.jpg" alt="Ancien portail avant remplacement">
+          </div>
+          <div class="ba-handle" style="left:50%"><span class="ba-handle-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 5l-5 7 5 7M16 5l5 7-5 7"/></svg></span></div>
+        </div>
+        <!-- Placeholder — TODO: replace with the next real before/after pair -->
         <div class="ba-slider reveal" data-ba>
           <span class="ba-tag left">Avant</span>
           <span class="ba-tag right">Après</span>
@@ -970,22 +976,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
             <small>Photo à venir</small>
           </div>
-          <div class="ba-before" style="width:50%">
-            <div class="ba-pane">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
-              <small>Photo à venir</small>
-            </div>
-          </div>
-          <div class="ba-handle" style="left:50%"><span class="ba-handle-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 5l-5 7 5 7M16 5l5 7-5 7"/></svg></span></div>
-        </div>
-        <div class="ba-slider reveal" data-ba>
-          <span class="ba-tag left">Avant</span>
-          <span class="ba-tag right">Après</span>
-          <div class="ba-pane ba-after">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
-            <small>Photo à venir</small>
-          </div>
-          <div class="ba-before" style="width:50%">
+          <div class="ba-before-wrap" style="clip-path:inset(0 50% 0 0)">
             <div class="ba-pane">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
               <small>Photo à venir</small>
@@ -1201,7 +1192,7 @@
 <!-- ===================== LIGHTBOX ===================== -->
 <div class="lightbox" id="lightbox">
   <div class="lightbox-inner">
-    <div class="lightbox-frame">
+    <div class="lightbox-frame" id="lightboxFrame">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
       <span>Photo à venir</span>
     </div>
@@ -1213,9 +1204,9 @@
       <span class="lightbox-counter" id="lbCounter">1 / 9</span>
       <button class="lightbox-close" id="lbClose" aria-label="Fermer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     </div>
-    <!-- Full gallery grid — TODO: replace each tile with a real project photo -->
+    <!-- Full gallery grid — TODO: replace each remaining placeholder tile with a real project photo -->
     <div class="gallery-grid" id="galleryGrid">
-      <div class="gallery-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg></div>
+      <div class="gallery-tile"><img src="assets/images/realisation-baie-vitree.jpg" alt="Baie vitrée double porte BC Châssis installée"></div>
       <div class="gallery-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg></div>
       <div class="gallery-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg></div>
       <div class="gallery-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg></div>
@@ -1330,14 +1321,14 @@
 
   // Before / after sliders
   document.querySelectorAll('[data-ba]').forEach(slider => {
-    const before = slider.querySelector('.ba-before');
+    const beforeWrap = slider.querySelector('.ba-before-wrap');
     const handle = slider.querySelector('.ba-handle');
     let dragging = false;
     const setPos = (clientX) => {
       const rect = slider.getBoundingClientRect();
       let pct = ((clientX - rect.left) / rect.width) * 100;
       pct = Math.max(0, Math.min(100, pct));
-      before.style.width = pct + '%';
+      beforeWrap.style.clipPath = 'inset(0 ' + (100 - pct) + '% 0 0)';
       handle.style.left = pct + '%';
     };
     slider.addEventListener('pointerdown', (e) => { dragging = true; slider.setPointerCapture(e.pointerId); setPos(e.clientX); });
@@ -1348,16 +1339,23 @@
 
   // Gallery lightbox
   const lightbox = document.getElementById('lightbox');
+  const lightboxFrame = document.getElementById('lightboxFrame');
   const tiles = Array.from(document.querySelectorAll('.gallery-tile'));
   const counter = document.getElementById('lbCounter');
   let current = 0;
-  const updateCounter = () => counter.textContent = (current + 1) + ' / ' + tiles.length;
-  const openLightbox = (index) => { current = index; updateCounter(); lightbox.classList.add('open'); };
+  const showCurrent = () => {
+    counter.textContent = (current + 1) + ' / ' + tiles.length;
+    const img = tiles[current].querySelector('img');
+    lightboxFrame.innerHTML = img
+      ? '<img src="' + img.getAttribute('src') + '" alt="' + img.getAttribute('alt') + '">'
+      : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg><span>Photo à venir</span>';
+  };
+  const openLightbox = (index) => { current = index; showCurrent(); lightbox.classList.add('open'); };
   document.getElementById('openGallery').addEventListener('click', () => openLightbox(0));
   tiles.forEach((tile, i) => tile.addEventListener('click', () => openLightbox(i)));
   document.getElementById('lbClose').addEventListener('click', () => lightbox.classList.remove('open'));
-  document.getElementById('lbNext').addEventListener('click', () => { current = (current + 1) % tiles.length; updateCounter(); });
-  document.getElementById('lbPrev').addEventListener('click', () => { current = (current - 1 + tiles.length) % tiles.length; updateCounter(); });
+  document.getElementById('lbNext').addEventListener('click', () => { current = (current + 1) % tiles.length; showCurrent(); });
+  document.getElementById('lbPrev').addEventListener('click', () => { current = (current - 1 + tiles.length) % tiles.length; showCurrent(); });
   lightbox.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.classList.remove('open'); });
   document.addEventListener('keydown', (e) => {
     if (!lightbox.classList.contains('open')) return;
