@@ -249,7 +249,7 @@
   /* ---------- Hero ---------- */
   .hero{
     position:relative;
-    height:260vh;
+    height:300vh;
     color:#fff;
   }
   .hero-pin{
@@ -271,12 +271,6 @@
       linear-gradient(160deg, rgba(22,31,41,0.86) 0%, rgba(30,42,55,0.68) 55%, rgba(41,57,74,0.82) 100%);
   }
   .hero .container{ position:relative; z-index:2; }
-  .hero-grid-lines{
-    position:absolute; inset:0; z-index:1; opacity:0.15; pointer-events:none;
-    background-image:
-      repeating-linear-gradient(90deg, rgba(255,255,255,0.5) 0 1px, transparent 1px 120px),
-      repeating-linear-gradient(0deg, rgba(255,255,255,0.5) 0 1px, transparent 1px 120px);
-  }
   .hero-content{ max-width:620px; }
   .hero-phrase{ will-change:transform, opacity; }
   .hero-content h1{
@@ -734,7 +728,8 @@
     .services-grid, .ba-grid{ grid-template-columns:1fr; }
     .process-grid{ grid-template-columns:1fr; gap:28px; }
     .gallery-grid{ grid-template-columns:repeat(2,1fr); }
-    .hero-pin{ padding:130px 0 90px; }
+    .hero-pin{ padding:130px 0 40px; align-items:flex-start; }
+    .hero-content h1{ font-size:clamp(1.7rem, 7vw, 2.3rem); }
     .hero-stats{ gap:22px; }
     .review-card{ flex-basis:280px; }
     .trust-strip .container{ justify-content:flex-start; }
@@ -823,7 +818,6 @@
       <div class="hero-media" aria-hidden="true">
         <video id="heroVideo" class="hero-video" src="assets/video/hero-transformation.mp4" muted playsinline preload="auto"></video>
       </div>
-      <div class="hero-grid-lines" aria-hidden="true"></div>
       <div class="container">
         <div class="hero-content" id="heroContent">
           <div class="hero-phrase" data-exit-dir="left">
@@ -1325,7 +1319,7 @@
   const heroSection = document.getElementById('accueil');
   const heroVideo = document.getElementById('heroVideo');
   const heroPhrases = Array.from(document.querySelectorAll('.hero-phrase'));
-  const PHRASE_EXIT_SPAN = 0.55;
+  const PHRASE_EXIT_SPAN = 0.35;
   const phraseSlot = PHRASE_EXIT_SPAN / heroPhrases.length;
   heroPhrases.forEach((el, i) => {
     el._start = i * phraseSlot;
