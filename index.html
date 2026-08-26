@@ -275,10 +275,11 @@
     -webkit-backdrop-filter:blur(var(--glass-blur)) saturate(160%);
     backdrop-filter:blur(var(--glass-blur)) saturate(160%);
     border-radius:var(--radius-lg);
-    padding:32px;
+    padding:10px;
     box-shadow:var(--shadow);
+    overflow:hidden;
   }
-  .window-illustration{ width:100%; height:auto; display:block; }
+  .hero-video{ width:100%; height:auto; display:block; border-radius:calc(var(--radius-lg) - 10px); background:#000; }
   .video-badge{
     margin-top:20px;
     display:flex; align-items:center; gap:12px;
@@ -339,12 +340,18 @@
     border:1px solid var(--grey-light);
   }
   .service-card:hover{ transform:translateY(-6px); box-shadow:0 20px 40px rgba(10,15,20,0.14); }
+  .service-card-head{ display:flex; align-items:flex-start; justify-content:space-between; gap:12px; margin-bottom:20px; }
   .service-icon{
     width:34px; height:34px;
     color:var(--orange-deep);
-    margin-bottom:20px;
   }
   .service-icon svg{ width:100%; height:100%; }
+  .service-thumb{
+    width:56px; height:56px; border-radius:10px; flex-shrink:0;
+    background:var(--offwhite); border:1.5px dashed var(--grey-light);
+    display:flex; align-items:center; justify-content:center; color:var(--grey);
+  }
+  .service-thumb svg{ width:20px; height:20px; }
   .service-card h3{ font-size:1.2rem; color:var(--dark); margin-bottom:14px; padding-bottom:14px; position:relative; }
   .service-card h3::after{ content:""; position:absolute; left:0; bottom:0; width:28px; height:2px; background:var(--orange-deep); }
   .service-card p{ color:var(--grey); font-size:0.95rem; line-height:1.55; }
@@ -718,30 +725,11 @@
       </div>
       <div class="hero-visual">
         <div class="hero-visual-card reveal">
-          <svg class="window-illustration" viewBox="0 0 340 300" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Coupe technique d'un châssis à triple vitrage">
-            <text x="170" y="20" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="12" letter-spacing="1.5" fill="rgba(255,255,255,0.5)">COUPE PROFIL — 70 MM</text>
-            <line x1="34" y1="34" x2="306" y2="34" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
-            <line x1="34" y1="27" x2="34" y2="41" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
-            <line x1="306" y1="27" x2="306" y2="41" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
-
-            <rect x="34" y="56" width="86" height="188" rx="8" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.4)" stroke-width="3"/>
-            <line x1="61" y1="64" x2="61" y2="236" stroke="rgba(255,255,255,0.22)" stroke-width="1.5"/>
-            <line x1="90" y1="64" x2="90" y2="236" stroke="rgba(255,255,255,0.22)" stroke-width="1.5"/>
-
-            <rect x="146" y="56" width="12" height="188" rx="2" fill="rgba(255,149,82,0.24)"/>
-            <rect x="176" y="56" width="12" height="188" rx="2" fill="rgba(255,149,82,0.14)"/>
-            <rect x="206" y="56" width="12" height="188" rx="2" fill="rgba(255,149,82,0.24)"/>
-
-            <rect x="122" y="140" width="22" height="16" rx="8" fill="#f3701c"/>
-            <circle cx="130" cy="148" r="3" fill="#161f29"/>
-
-            <text x="182" y="270" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="11" letter-spacing="1" fill="rgba(255,255,255,0.45)">TRIPLE VITRAGE</text>
-            <text x="77" y="270" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="11" letter-spacing="1" fill="rgba(255,255,255,0.45)">PVC · ALU · BOIS</text>
-          </svg>
+          <video id="heroVideo" class="hero-video" src="assets/video/hero-transformation.mp4" muted playsinline preload="auto" aria-label="Transformation d'un ancien portail en bois vers un nouveau portail blanc BC Châssis"></video>
         </div>
         <div class="video-badge">
           <span class="dot" aria-hidden="true"></span>
-          Vidéo interactive à venir — l'assemblage d'un châssis, au fil du scroll
+          Faites défiler pour voir la transformation
         </div>
       </div>
     </div>
@@ -769,34 +757,53 @@
         <h2>Toute la menuiserie extérieure, un seul interlocuteur</h2>
         <p>De la fabrication sur mesure au dépannage rapide, BC Châssis prend en charge l'ensemble de vos projets extérieurs.</p>
       </div>
+      <!-- service-thumb squares are placeholders — TODO: replace each with a real example photo for that service -->
       <div class="services-grid">
         <div class="service-card reveal">
-          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 3v18M3 12h18"/></svg></div>
+          <div class="service-card-head">
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 3v18M3 12h18"/></svg></div>
+            <div class="service-thumb" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+          </div>
           <h3>Châssis & Fenêtres</h3>
           <p>PVC, aluminium ou bois, double ou triple vitrage : des châssis sur mesure, posés avec précision.</p>
         </div>
         <div class="service-card reveal">
-          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="2" width="14" height="20" rx="1.5"/><circle cx="15" cy="12" r="1"/></svg></div>
+          <div class="service-card-head">
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="2" width="14" height="20" rx="1.5"/><circle cx="15" cy="12" r="1"/></svg></div>
+            <div class="service-thumb" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+          </div>
           <h3>Portes</h3>
           <p>Portes d'entrée, portes de garage sectionnelles et portes coupe-feu, pour une sécurité qui dure.</p>
         </div>
         <div class="service-card reveal">
-          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M3 14h18M3 19h18"/></svg></div>
+          <div class="service-card-head">
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M3 14h18M3 19h18"/></svg></div>
+            <div class="service-thumb" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+          </div>
           <h3>Volets & Stores</h3>
           <p>Volets manuels ou motorisés, stores sur mesure, adaptés à chaque façade.</p>
         </div>
         <div class="service-card reveal">
-          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21V10l9-6 9 6v11"/><path d="M9 21v-8h6v8"/></svg></div>
+          <div class="service-card-head">
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21V10l9-6 9 6v11"/><path d="M9 21v-8h6v8"/></svg></div>
+            <div class="service-thumb" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+          </div>
           <h3>Vérandas & Pergolas</h3>
           <p>Vérandas lumineuses et pergolas bioclimatiques pour prolonger votre maison vers l'extérieur.</p>
         </div>
         <div class="service-card reveal">
-          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 20V9l9-5 9 5v11"/><path d="M3 20h18M7 20v-6h10v6"/></svg></div>
+          <div class="service-card-head">
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 20V9l9-5 9 5v11"/><path d="M3 20h18M7 20v-6h10v6"/></svg></div>
+            <div class="service-thumb" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+          </div>
           <h3>Carports & Bardage</h3>
           <p>Structures extérieures et habillages de façade, pensés pour durer.</p>
         </div>
         <div class="service-card reveal">
-          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14.7 6.3a4 4 0 1 1-5.4 5.4L4 17l3 3 5.3-5.3a4 4 0 1 1 5.4-5.4z"/></svg></div>
+          <div class="service-card-head">
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14.7 6.3a4 4 0 1 1-5.4 5.4L4 17l3 3 5.3-5.3a4 4 0 1 1 5.4-5.4z"/></svg></div>
+            <div class="service-thumb" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+          </div>
           <h3>Dépannage & SAV</h3>
           <p>Vitre cassée, serrure bloquée, châssis à réparer : une intervention rapide, sans attente interminable.</p>
         </div>
@@ -1177,6 +1184,19 @@
   };
   document.addEventListener('scroll', updateProgress);
   updateProgress();
+
+  // Hero video scroll-scrub: video progress follows how far the hero has scrolled past
+  const heroSection = document.getElementById('accueil');
+  const heroVideo = document.getElementById('heroVideo');
+  const scrubHeroVideo = () => {
+    if (!heroVideo.duration) return;
+    const heroHeight = heroSection.offsetHeight;
+    const scrolled = -heroSection.getBoundingClientRect().top;
+    const progress = Math.max(0, Math.min(1, scrolled / heroHeight));
+    heroVideo.currentTime = progress * heroVideo.duration;
+  };
+  document.addEventListener('scroll', scrubHeroVideo);
+  heroVideo.addEventListener('loadedmetadata', scrubHeroVideo);
 
   // Mobile nav
   const mobileNav = document.getElementById('mobileNav');
