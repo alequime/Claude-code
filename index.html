@@ -186,6 +186,8 @@
   .logo-text{ color:#fff; line-height:1.15; }
   .logo-text strong{ display:block; font-family:var(--font-display); font-weight:700; font-size:1.2rem; letter-spacing:0.04em; }
   .logo-text span{ display:block; font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.65); }
+  .logo-img{ height:32px; width:auto; display:block; }
+  .footer-brand .logo-img{ height:30px; }
 
   .main-nav{ display:flex; align-items:center; gap:8px; }
   .main-nav ul{ display:flex; align-items:center; gap:4px; margin-right:10px; }
@@ -623,7 +625,7 @@
   .dropzone svg{ width:22px; height:22px; color:var(--orange); margin-bottom:8px; }
   .dropzone strong{ color:var(--text-heading); }
   .dropzone input[type="file"]{ display:none; }
-  .dropzone .file-name{ margin-top:8px; font-weight:600; color:var(--orange-deep); font-size:0.85rem; }
+  .dropzone .file-name{ margin-top:8px; font-weight:600; color:var(--orange); font-size:0.85rem; }
 
   .form-status{
     display:none; align-items:center; gap:10px; padding:16px 18px; border-radius:var(--radius-sm);
@@ -632,6 +634,25 @@
   .form-status.show{ display:flex; }
   .form-status.success{ background:#e3f0e8; color:#1f6e42; }
   .form-status.error{ background:#f7e3df; color:#a3432f; }
+
+  /* ---------- Stay connected ---------- */
+  .stay-connected{
+    padding:80px 0; text-align:center; color:#fff;
+    background:linear-gradient(160deg, var(--dark-2), var(--dark));
+  }
+  .stay-connected h2{ font-size:clamp(1.6rem,3vw,2.2rem); }
+  .stay-connected p{ margin:14px auto 0; max-width:480px; color:rgba(255,255,255,0.65); font-size:1rem; line-height:1.6; }
+  .stay-connected-links{ display:flex; justify-content:center; gap:14px; margin-top:32px; flex-wrap:wrap; }
+  .stay-connected-links a{
+    display:inline-flex; align-items:center; gap:9px;
+    padding:13px 24px; border-radius:100px; font-weight:600; font-size:0.92rem;
+    background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.22); color:#fff;
+    transition:background .2s var(--ease);
+  }
+  .stay-connected-links a svg{ width:18px; height:18px; }
+  .stay-connected-links a:hover{ background:rgba(255,255,255,0.18); }
+  .stay-connected-links a.google{ background:var(--orange); border-color:var(--orange); color:var(--dark); }
+  .stay-connected-links a.google:hover{ background:var(--orange-light); }
 
   /* ---------- Footer ---------- */
   .site-footer{ background:var(--dark); color:rgba(255,255,255,0.7); padding:70px 0 30px; }
@@ -676,6 +697,7 @@
   :root[data-theme="light"] .header-phone:hover{ background:rgba(20,32,43,0.12); }
   :root[data-theme="light"] .logo-text{ color:var(--ink); }
   :root[data-theme="light"] .logo-text span{ color:rgba(20,32,43,0.55); }
+  :root[data-theme="light"] .site-header.scrolled .logo-img{ filter:invert(1); }
   :root[data-theme="light"] .main-nav a.nav-link{ color:rgba(20,32,43,0.75); }
   :root[data-theme="light"] .main-nav a.nav-link:hover{ background:rgba(20,32,43,0.07); color:var(--ink); }
   :root[data-theme="light"] .site-header.scrolled{ background:rgba(246,244,240,0.78); border-bottom-color:rgba(20,32,43,0.08); }
@@ -747,8 +769,7 @@
 <header class="site-header" id="siteHeader">
   <div class="container">
     <a href="#accueil" class="logo" aria-label="BC Châssis, accueil">
-      <span class="logo-mark">BC</span>
-      <span class="logo-text"><strong>CHÂSSIS</strong><span>Menuiserie · Depuis 1992</span></span>
+      <img class="logo-img" src="assets/images/logo-bc-chassis.png" alt="BC Châssis, menuiserie">
     </a>
     <nav class="main-nav">
       <a href="tel:+32475497488" class="header-phone" aria-label="Appeler BC Châssis au 0475 49 74 88">
@@ -1196,6 +1217,28 @@
       </form>
     </div>
   </section>
+
+  <!-- ===================== STAY CONNECTED ===================== -->
+  <section class="stay-connected">
+    <div class="container">
+      <h2>Restez informé</h2>
+      <p>Suivez nos chantiers et nos avant/après au fil des semaines, et donnez-nous votre avis si vous êtes déjà passé par chez nous.</p>
+      <div class="stay-connected-links">
+        <a href="https://www.instagram.com/bc_chassis1/" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
+          Instagram
+        </a>
+        <a href="https://www.facebook.com/share/1cE8JvFVAC/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 3h-2a5 5 0 0 0-5 5v3H6v4h2v6h4v-6h3l1-4h-4V8a1 1 0 0 1 1-1h3z"/></svg>
+          Facebook
+        </a>
+        <a href="https://share.google/jj5CFrF2hp7OI4Bmp" target="_blank" rel="noopener noreferrer" class="google">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          Avis Google
+        </a>
+      </div>
+    </div>
+  </section>
 </main>
 
 <!-- ===================== LIGHTBOX ===================== -->
@@ -1242,8 +1285,7 @@
     <div class="footer-top">
       <div class="footer-brand">
         <div class="logo">
-          <span class="logo-mark">BC</span>
-          <span class="logo-text"><strong style="color:#fff;">CHÂSSIS</strong><span>Menuiserie · Depuis 1992</span></span>
+          <img class="logo-img" src="assets/images/logo-bc-chassis.png" alt="BC Châssis, menuiserie">
         </div>
         <p>Châssis, portes, volets, vérandas et pergolas sur mesure, installés par des artisans du Brabant wallon depuis plus de 30 ans.</p>
       </div>
