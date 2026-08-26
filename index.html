@@ -346,31 +346,37 @@
     gap:24px;
   }
   .service-card{
-    background:var(--glass-bg-strong);
+    position:relative;
+    aspect-ratio:3/4;
     border-radius:var(--radius-md);
-    padding:34px 28px;
+    overflow:hidden;
     box-shadow:var(--shadow-sm);
     transition:transform .3s var(--ease), box-shadow .3s var(--ease);
-    border:1px solid var(--glass-border);
-    -webkit-backdrop-filter:blur(var(--glass-blur)); backdrop-filter:blur(var(--glass-blur));
   }
-  .service-card:hover{ transform:translateY(-6px); box-shadow:0 20px 40px rgba(10,15,20,0.14); }
-  .service-card-head{ display:flex; align-items:flex-start; justify-content:space-between; gap:12px; margin-bottom:20px; }
+  .service-card:hover{ transform:translateY(-6px); box-shadow:0 20px 40px rgba(10,15,20,0.3); }
+  .service-card-bg{
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block;
+    transition:transform .5s var(--ease);
+  }
+  .service-card:hover .service-card-bg{ transform:scale(1.06); }
+  .service-card-scrim{
+    position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(15,20,26,0.05) 0%, rgba(15,20,26,0.4) 50%, rgba(10,14,18,0.94) 100%);
+  }
+  .service-card-body{
+    position:relative; z-index:2; height:100%;
+    display:flex; flex-direction:column; justify-content:flex-end;
+    padding:26px;
+  }
   .service-icon{
-    width:34px; height:34px;
-    color:var(--orange);
+    width:40px; height:40px; margin-bottom:14px; flex-shrink:0;
+    border-radius:10px; background:rgba(255,255,255,0.16); border:1px solid rgba(255,255,255,0.3);
+    -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px);
+    display:flex; align-items:center; justify-content:center; color:var(--orange);
   }
-  .service-icon svg{ width:100%; height:100%; }
-  .service-thumb{
-    width:56px; height:56px; border-radius:10px; flex-shrink:0;
-    background:var(--glass-bg);
-    display:flex; align-items:center; justify-content:center; color:var(--text-body);
-  }
-  .service-thumb svg{ width:20px; height:20px; }
-  .service-thumb img{ width:100%; height:100%; object-fit:cover; border-radius:10px; }
-  .service-card h3{ font-size:1.2rem; color:var(--text-heading); margin-bottom:14px; padding-bottom:14px; position:relative; }
-  .service-card h3::after{ content:""; position:absolute; left:0; bottom:0; width:28px; height:2px; background:var(--orange); }
-  .service-card p{ color:var(--text-body); font-size:0.95rem; line-height:1.55; }
+  .service-icon svg{ width:20px; height:20px; }
+  .service-card h3{ font-size:1.15rem; color:#fff; margin-bottom:8px; }
+  .service-card p{ color:rgba(255,255,255,0.82); font-size:0.92rem; line-height:1.5; }
 
   /* ---------- Process ---------- */
   .process{ padding:100px 0 110px; background:var(--surface-2); border-top:1px solid var(--divider); }
@@ -891,52 +897,58 @@
       </div>
       <div class="services-grid">
         <div class="service-card reveal">
-          <div class="service-card-head">
+          <img class="service-card-bg" src="assets/images/service-chassis-fenetres.jpg" alt="">
+          <div class="service-card-scrim"></div>
+          <div class="service-card-body">
             <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 3v18M3 12h18"/></svg></div>
-            <div class="service-thumb"><img src="assets/images/service-chassis-fenetres.jpg" alt="Exemple de châssis BC Châssis"></div>
+            <h3>Châssis & Fenêtres</h3>
+            <p>PVC, aluminium ou bois, double ou triple vitrage : des châssis sur mesure, posés avec précision.</p>
           </div>
-          <h3>Châssis & Fenêtres</h3>
-          <p>PVC, aluminium ou bois, double ou triple vitrage : des châssis sur mesure, posés avec précision.</p>
         </div>
         <div class="service-card reveal">
-          <div class="service-card-head">
+          <img class="service-card-bg" src="assets/images/garage-apres-1.jpg" alt="">
+          <div class="service-card-scrim"></div>
+          <div class="service-card-body">
             <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="2" width="14" height="20" rx="1.5"/><circle cx="15" cy="12" r="1"/></svg></div>
-            <div class="service-thumb"><img src="assets/images/service-portes.jpg" alt="Exemple de porte BC Châssis"></div>
+            <h3>Portes</h3>
+            <p>Portes d'entrée, portes de garage sectionnelles et portes coupe-feu, pour une sécurité qui dure.</p>
           </div>
-          <h3>Portes</h3>
-          <p>Portes d'entrée, portes de garage sectionnelles et portes coupe-feu, pour une sécurité qui dure.</p>
         </div>
         <div class="service-card reveal">
-          <div class="service-card-head">
+          <img class="service-card-bg" src="assets/images/service-volets-stores.jpg" alt="">
+          <div class="service-card-scrim"></div>
+          <div class="service-card-body">
             <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M3 14h18M3 19h18"/></svg></div>
-            <div class="service-thumb"><img src="assets/images/service-volets-stores.jpg" alt="Exemple de volet roulant BC Châssis"></div>
+            <h3>Volets & Stores</h3>
+            <p>Volets manuels ou motorisés, stores sur mesure, adaptés à chaque façade.</p>
           </div>
-          <h3>Volets & Stores</h3>
-          <p>Volets manuels ou motorisés, stores sur mesure, adaptés à chaque façade.</p>
         </div>
         <div class="service-card reveal">
-          <div class="service-card-head">
+          <img class="service-card-bg" src="assets/images/service-verandas-pergolas.jpg" alt="">
+          <div class="service-card-scrim"></div>
+          <div class="service-card-body">
             <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21V10l9-6 9 6v11"/><path d="M9 21v-8h6v8"/></svg></div>
-            <div class="service-thumb"><img src="assets/images/service-verandas-pergolas.jpg" alt="Exemple de véranda BC Châssis"></div>
+            <h3>Vérandas & Pergolas</h3>
+            <p>Vérandas lumineuses et pergolas bioclimatiques pour prolonger votre maison vers l'extérieur.</p>
           </div>
-          <h3>Vérandas & Pergolas</h3>
-          <p>Vérandas lumineuses et pergolas bioclimatiques pour prolonger votre maison vers l'extérieur.</p>
         </div>
         <div class="service-card reveal">
-          <div class="service-card-head">
+          <img class="service-card-bg" src="assets/images/service-carports-bardage.jpg" alt="">
+          <div class="service-card-scrim"></div>
+          <div class="service-card-body">
             <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 20V9l9-5 9 5v11"/><path d="M3 20h18M7 20v-6h10v6"/></svg></div>
-            <div class="service-thumb"><img src="assets/images/service-carports-bardage.jpg" alt="Exemple de carport BC Châssis"></div>
+            <h3>Carports & Bardage</h3>
+            <p>Structures extérieures et habillages de façade, pensés pour durer.</p>
           </div>
-          <h3>Carports & Bardage</h3>
-          <p>Structures extérieures et habillages de façade, pensés pour durer.</p>
         </div>
         <div class="service-card reveal">
-          <div class="service-card-head">
+          <img class="service-card-bg" src="assets/images/service-depannage-sav.jpg" alt="">
+          <div class="service-card-scrim"></div>
+          <div class="service-card-body">
             <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14.7 6.3a4 4 0 1 1-5.4 5.4L4 17l3 3 5.3-5.3a4 4 0 1 1 5.4-5.4z"/></svg></div>
-            <div class="service-thumb"><img src="assets/images/service-depannage-sav.jpg" alt="Exemple de poignée et serrure BC Châssis"></div>
+            <h3>Dépannage & SAV</h3>
+            <p>Vitre cassée, serrure bloquée, châssis à réparer : une intervention rapide, sans attente interminable.</p>
           </div>
-          <h3>Dépannage & SAV</h3>
-          <p>Vitre cassée, serrure bloquée, châssis à réparer : une intervention rapide, sans attente interminable.</p>
         </div>
       </div>
     </div>
