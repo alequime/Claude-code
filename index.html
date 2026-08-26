@@ -419,12 +419,13 @@
   /* ---------- Réalisations / Gallery ---------- */
   .gallery{ padding:110px 0; background:var(--offwhite); }
   .ba-grid{
-    display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-bottom:44px;
+    display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin-bottom:44px;
   }
   .ba-slider{
     position:relative; aspect-ratio:4/5; border-radius:var(--radius-md); overflow:hidden;
     box-shadow:var(--shadow-sm); user-select:none; touch-action:none; cursor:ew-resize;
   }
+  .ba-spotlight{ cursor:pointer; touch-action:auto; }
   .ba-img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
   .ba-pane{
     position:absolute; inset:0; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:10px;
@@ -457,6 +458,7 @@
   }
   .ba-tag.left{ left:14px; }
   .ba-tag.right{ right:14px; }
+  .ba-tag.bottom{ top:auto; bottom:14px; left:14px; }
 
   .gallery-cta{ text-align:center; }
 
@@ -490,7 +492,7 @@
     display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:26px;
   }
   .gallery-tile{
-    aspect-ratio:1; border-radius:var(--radius-sm); overflow:hidden; cursor:pointer;
+    position:relative; aspect-ratio:1; border-radius:var(--radius-sm); overflow:hidden; cursor:pointer;
     background:linear-gradient(160deg,#3a4b5c,#1c2733);
     display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.5);
     transition:transform .3s var(--ease);
@@ -498,6 +500,11 @@
   .gallery-tile:hover{ transform:scale(1.04); }
   .gallery-tile svg{ width:22px; height:22px; }
   .gallery-tile img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .tile-tag{
+    position:absolute; top:10px; left:10px; z-index:2;
+    font-size:0.65rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase;
+    background:rgba(0,0,0,0.5); color:#fff; padding:4px 10px; border-radius:100px;
+  }
   .gallery-full{ margin-top:50px; }
 
   /* ---------- Reviews ---------- */
@@ -543,11 +550,21 @@
   .faq-item .faq-answer{ padding:0 24px 22px; color:var(--grey); font-size:0.95rem; line-height:1.6; }
 
   /* ---------- Zone ---------- */
-  .zone{ padding:90px 0; background:#fff; text-align:center; }
-  .zone-chips{ display:flex; flex-wrap:wrap; justify-content:center; gap:12px; margin-top:10px; }
+  .zone{
+    padding:110px 0; text-align:center; color:#fff;
+    background:
+      linear-gradient(160deg, rgba(20,26,33,0.88), rgba(20,26,33,0.74)),
+      url('assets/images/camionnette-bc-chassis.jpg') center 30%/cover;
+  }
+  .zone .eyebrow{ color:var(--orange); }
+  .zone .eyebrow::before{ background:var(--orange); }
+  .zone .section-head h2{ color:#fff; }
+  .zone .section-head p{ color:rgba(255,255,255,0.7); }
+  .zone-chips{ display:flex; flex-wrap:wrap; justify-content:center; gap:12px; margin-top:26px; }
   .zone-chip{
-    background:var(--offwhite); border:1px solid var(--grey-light);
-    padding:10px 20px; border-radius:100px; font-weight:600; font-size:0.9rem; color:var(--dark);
+    background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.28);
+    -webkit-backdrop-filter:blur(14px); backdrop-filter:blur(14px);
+    padding:10px 20px; border-radius:100px; font-weight:600; font-size:0.9rem; color:#fff;
   }
 
   /* ---------- Contact ---------- */
@@ -968,21 +985,19 @@
           </div>
           <div class="ba-handle" style="left:50%"><span class="ba-handle-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 5l-5 7 5 7M16 5l5 7-5 7"/></svg></span></div>
         </div>
-        <!-- Placeholder — TODO: replace with the next real before/after pair -->
         <div class="ba-slider reveal" data-ba>
           <span class="ba-tag left">Avant</span>
           <span class="ba-tag right">Après</span>
-          <div class="ba-pane ba-after">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
-            <small>Photo à venir</small>
-          </div>
+          <img class="ba-img" src="assets/images/veranda-apres-1.jpg" alt="Véranda BC Châssis rénovée, structure alu et vitrages neufs">
           <div class="ba-before-wrap" style="clip-path:inset(0 50% 0 0)">
-            <div class="ba-pane">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
-              <small>Photo à venir</small>
-            </div>
+            <img class="ba-img" src="assets/images/veranda-avant-1.jpg" alt="Ancienne véranda avant rénovation">
           </div>
           <div class="ba-handle" style="left:50%"><span class="ba-handle-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 5l-5 7 5 7M16 5l5 7-5 7"/></svg></span></div>
+        </div>
+        <div class="ba-slider ba-spotlight reveal" id="vitrineSpotlight" data-open-tile="assets/images/baie-coulissante-solo-1.jpg">
+          <span class="ba-tag left">Réalisation</span>
+          <img class="ba-img" src="assets/images/baie-coulissante-solo-1.jpg" alt="Baie coulissante aluminium BC Châssis installée sur une terrasse">
+          <span class="ba-tag bottom">Baie coulissante alu</span>
         </div>
       </div>
 
@@ -1094,6 +1109,7 @@
       <div class="section-head center">
         <span class="eyebrow">Zone d'intervention</span>
         <h2>Nous intervenons près de chez vous</h2>
+        <p>Notre camionnette sur le terrain, prête pour votre chantier.</p>
       </div>
       <div class="zone-chips">
         <span class="zone-chip">Rebecq</span>
@@ -1201,20 +1217,28 @@
         <button class="lightbox-arrow" id="lbPrev" aria-label="Précédent"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg></button>
         <button class="lightbox-arrow" id="lbNext" aria-label="Suivant"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
       </div>
-      <span class="lightbox-counter" id="lbCounter">1 / 9</span>
+      <span class="lightbox-counter" id="lbCounter">1 / 18</span>
       <button class="lightbox-close" id="lbClose" aria-label="Fermer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     </div>
-    <!-- Full gallery grid — TODO: replace each remaining placeholder tile with a real project photo -->
     <div class="gallery-grid" id="galleryGrid">
       <div class="gallery-tile"><img src="assets/images/realisation-baie-vitree.jpg" alt="Baie vitrée double porte BC Châssis installée"></div>
-      <div class="gallery-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg></div>
-      <div class="gallery-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg></div>
-      <div class="gallery-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg></div>
-      <div class="gallery-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg></div>
-      <div class="gallery-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg></div>
-      <div class="gallery-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg></div>
-      <div class="gallery-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg></div>
-      <div class="gallery-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg></div>
+      <div class="gallery-tile"><img src="assets/images/baie-coulissante-solo-1.jpg" alt="Baie coulissante aluminium BC Châssis installée sur une terrasse"></div>
+      <div class="gallery-tile"><span class="tile-tag">Avant</span><img src="assets/images/porte-entree-avant-1.jpg" alt="Ancienne porte d'entrée en bois avant remplacement, Rebecq"></div>
+      <div class="gallery-tile"><span class="tile-tag">Après</span><img src="assets/images/porte-entree-apres-1.jpg" alt="Nouvelle porte d'entrée aluminium anthracite BC Châssis, vitrage dépoli"></div>
+      <div class="gallery-tile"><span class="tile-tag">Avant</span><img src="assets/images/fenetres-avant-1.jpg" alt="Anciennes fenêtres en bois avant remplacement"></div>
+      <div class="gallery-tile"><span class="tile-tag">Après</span><img src="assets/images/fenetres-apres-1.jpg" alt="Nouvelles fenêtres aluminium BC Châssis, double vitrage"></div>
+      <div class="gallery-tile"><span class="tile-tag">Avant</span><img src="assets/images/garage-avant-1.jpg" alt="Ancienne porte de garage en bois avant remplacement"></div>
+      <div class="gallery-tile"><span class="tile-tag">Après</span><img src="assets/images/garage-apres-1.jpg" alt="Nouvelle porte de garage sectionnelle BC Châssis, coloris anthracite" style="object-position:center 25%"></div>
+      <div class="gallery-tile"><span class="tile-tag">Avant</span><img src="assets/images/portail-avant-2.jpg" alt="Ancien portail en bois avant remplacement"></div>
+      <div class="gallery-tile"><span class="tile-tag">Après</span><img src="assets/images/portail-apres-2.jpg" alt="Nouveau portail BC Châssis après installation"></div>
+      <div class="gallery-tile"><span class="tile-tag">Avant</span><img src="assets/images/facade-avant-1.jpg" alt="Façade dégradée avant rénovation des menuiseries"></div>
+      <div class="gallery-tile"><span class="tile-tag">Après</span><img src="assets/images/facade-apres-1.jpg" alt="Façade rénovée, porte et fenêtres PVC blanches BC Châssis"></div>
+      <div class="gallery-tile"><img src="assets/images/veranda-structure-chantier.jpg" alt="Structure aluminium d'une véranda BC Châssis en cours de montage"></div>
+      <div class="gallery-tile"><img src="assets/images/veranda-interieur-chantier.jpg" alt="Véranda BC Châssis, vue intérieure en fin de chantier"></div>
+      <div class="gallery-tile"><img src="assets/images/veranda-toit-chantier-1.jpg" alt="Pose de la toiture vitrée d'une véranda BC Châssis"></div>
+      <div class="gallery-tile"><img src="assets/images/veranda-toit-chantier-2.jpg" alt="Toiture de véranda BC Châssis avec store d'ombrage intégré"></div>
+      <div class="gallery-tile"><img src="assets/images/pergola-chantier-1.jpg" alt="Montage d'une pergola aluminium BC Châssis sur terrasse"></div>
+      <div class="gallery-tile"><img src="assets/images/pergola-chantier-2.jpg" alt="Pergola aluminium BC Châssis, structure posée sur terrasse"></div>
     </div>
   </div>
 </div>
@@ -1352,6 +1376,13 @@
   };
   const openLightbox = (index) => { current = index; showCurrent(); lightbox.classList.add('open'); };
   document.getElementById('openGallery').addEventListener('click', () => openLightbox(0));
+  document.querySelectorAll('[data-open-tile]').forEach(el => {
+    el.addEventListener('click', () => {
+      const src = el.getAttribute('data-open-tile');
+      const idx = tiles.findIndex(t => { const img = t.querySelector('img'); return img && img.getAttribute('src') === src; });
+      if (idx > -1) openLightbox(idx);
+    });
+  });
   tiles.forEach((tile, i) => tile.addEventListener('click', () => openLightbox(i)));
   document.getElementById('lbClose').addEventListener('click', () => lightbox.classList.remove('open'));
   document.getElementById('lbNext').addEventListener('click', () => { current = (current + 1) % tiles.length; showCurrent(); });
